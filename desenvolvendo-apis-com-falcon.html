@@ -1,0 +1,132 @@
+<html>
+<head>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/css/theme/blood.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <section>
+                <h3 class="text-nowrap">Desenvolvendo APIs com Falcon</h3>
+            </section>
+            <section>
+                <img src="images/quenhe-vc.jpg" />
+            </section>
+            <section>
+                <h3>Bianca Rosa</h3>
+                <div class="col-sm-5">
+                    <img src="images/eu.jpg" />
+                </div>
+                <div class="col-sm-6">
+                    <h4>XP em</h4>
+                    <ul>
+                        <li>Java</li>
+                        <li>Grails</li>
+                        <li>Python</li>
+                        <li>Node.js</li>
+                        <li>AngularJS</li>
+                        <li>Golang (engatinhando)</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h3>Bianca Rosa</h3>
+                <div class="col-sm-5">
+                    <img src="images/eu.jpg" />
+                </div>
+                <div class="col-sm-6">
+                    <h4>Mas gosto tamb&eacute;m de...</h4>
+                    <ul>
+                        <li>Entregar software com qualidade</li>
+                        <li>Testes</li>
+                        <li>Refatorar c&oacute;digo</li>
+                        <li>Cloud computing</li>
+                        <li>Data Science</li>
+                        <li>Cerveja</li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h1>API</h1>
+            Application Programing Interface
+        </section>
+        <section>
+            <h1>REST</h1>
+            Representational State Transfer
+        </section>
+        <section>
+            <h1>API Restful</h1>
+            <div>
+                <ul>
+                    <li>
+                        GET /songs - Todas as m&uacute;sicas
+                    </li>
+                    <li>
+                        GET /songs?title=Start me up - Filtra m&uacute;sicas
+                    </li>
+                    <li>
+                        POST /songs - Cria uma m&uacute;sica
+                    </li>
+                    <li>
+                        PUT /songs/:id - Atualiza uma m&uacute;sica
+                    </li>
+                    <li>
+                        DELETE /songs/:id - Deleta uma m&uacute;sica
+                    </li>
+                    <li>
+                        GET /albums/:id/songs - Todas as m&uacute;sicas de um &aacute;lbum
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <section>
+                <h1>Falcon</h1>
+            </section>
+            <section>
+                <h1>Falcon</h1>
+                <img src="images/falcao.jpg"/>
+            </section>
+            <section>
+                <h1>Falcon</h1>
+                <img src="images/millennium-falcon-space.jpg"/>
+            </section>
+            <section>
+                <h1>Falcon</h1>
+                <img src="images/falcon.jpg"/>
+            </section>
+        </section>
+
+        <section>
+            <h1>Benchmarks</h1>
+            <a href="http://falconframework.org/#Metrics" target="_blank">http://falconframework.org/#Metrics</a>
+        </section>
+        <section>
+            <h1>Exemplo</h1>
+            <script src="https://gist.github.com/kgriffs/90837585fa4aca475229.js"></script>
+        </section>
+        <section>
+            <h1>Rodando</h1>
+            <ul>
+                <li>
+                    Green Unicorn <a href="http://gunicorn.org/" target="_blank">(http://gunicorn.org/)</a> <small>(gunicorn sample:api)</small>
+                </li>
+                <li>
+                    uWSGI <a href="http://uwsgi-docs.readthedocs.io/en/latest/index.html" target="_blank">(http://gunicorn.org/)</a> <small>uwsgi --http :9090 --wsgi-file sample.py --callable api virtualenv=venv</small>
+                </li>
+                <li>
+                    mod_wsgi <a href="http://www.modwsgi.org/" target="_blank">(http://www.modwsgi.org/)</a>t
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+<script src="node_modules/reveal.js/js/reveal.js"></script>
+<script>
+    Reveal.initialize();
+</script>
+</body>
+</html>
