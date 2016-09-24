@@ -58,29 +58,67 @@
             Representational State Transfer
         </section>
         <section>
-            <h1>API Restful</h1>
-            <div>
+            <section>
+                <h1>API Restful</h1>
+                <div>
+                    <ul>
+                        <li>
+                            GET /songs - Todas as m&uacute;sicas
+                        </li>
+                        <li>
+                            GET /songs?title=Start me up - Filtra m&uacute;sicas
+                        </li>
+                        <li>
+                            POST /songs - Cria uma m&uacute;sica
+                        </li>
+                        <li>
+                            PUT /songs/:id - Atualiza uma m&uacute;sica
+                        </li>
+                        <li>
+                            DELETE /songs/:id - Deleta uma m&uacute;sica
+                        </li>
+                        <li>
+                            GET /albums/:id/songs - Todas as m&uacute;sicas de um &aacute;lbum
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h1>Retornos...</h1>
+                <ul>
+                    <li>200 - ok</li>
+                    <li>201 - created</li>
+                    <li>404 - not found</li>
+                    <li>401 - unauthorized</li>
+                    <li><a target="_blank" href="http://http.cat/">http://http.cat/</a></li>
+                    <li><a target="_blank" href="http://httpstatusdogs.com/">http://httpstatusdogs.com/</a></li>
+                </ul>
+            </section>
+            <section>
                 <ul>
                     <li>
-                        GET /songs - Todas as m&uacute;sicas
+                        Microsoft API Guidelines <a href="https://github.com/Microsoft/api-guidelines" target="_blank">(https://github.com/Microsoft/api-guidelines)</a>
                     </li>
                     <li>
-                        GET /songs?title=Start me up - Filtra m&uacute;sicas
+                        Microsoft REST API Guidelines Are Not RESTful <a href="https://www.infoq.com/news/2016/07/microsoft-rest-api" target="_blank">(https://www.infoq.com/news/2016/07/microsoft-rest-api)</a>
                     </li>
                     <li>
-                        POST /songs - Cria uma m&uacute;sica
+                        Why Some Web APIs Are Not RESTful and What Can Be Done About It <a href="https://www.infoq.com/articles/web-api-rest" target="_blank">(https://www.infoq.com/articles/web-api-rest)</a>
                     </li>
                     <li>
-                        PUT /songs/:id - Atualiza uma m&uacute;sica
+                        RFC HTTP/1.1 <a href="https://tools.ietf.org/html/rfc7231" target="_blank">(https://tools.ietf.org/html/rfc7231)</a>
                     </li>
                     <li>
-                        DELETE /songs/:id - Deleta uma m&uacute;sica
+                        RFC HTTP/2 <a href="https://tools.ietf.org/html/rfc7540" target="_blank">(https://tools.ietf.org/html/rfc7540)</a>
                     </li>
                     <li>
-                        GET /albums/:id/songs - Todas as m&uacute;sicas de um &aacute;lbum
+                        Google <a href="http://lmgtfy.com/?q=restful+api+best+practices">(http://lmgtfy.com/?q=restful+api+best+practices)</a>
                     </li>
                 </ul>
-            </div>
+            </section>
+            <section>
+                    <h4>Tire suas pr&oacute;prias conclus&otilde;es.</h4>
+            </section>
         </section>
         <section>
             <section>
@@ -109,6 +147,30 @@
             <script src="https://gist.github.com/kgriffs/90837585fa4aca475229.js"></script>
         </section>
         <section>
+            <section><h2>Resources</h2></section>
+            <section>
+                <script src="https://gist.github.com/biancarosa/09df0cff9b0943982a870e07a05ef396.js"></script>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Middlewares</h2>
+            </section>
+            <section>
+                <script src="https://gist.github.com/biancarosa/2cf8493e1410bcc3914db7975277e084.js"></script>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Hooks</h2>
+            </section>
+            <section>
+                <script src="https://gist.github.com/biancarosa/f9f0f827999322475822890ee2ed6c4e.js"></script>
+            </section>
+        </section>
+
+
+        <section>
             <h1>Rodando</h1>
             <ul>
                 <li>
@@ -118,7 +180,7 @@
                     uWSGI <a href="http://uwsgi-docs.readthedocs.io/en/latest/index.html" target="_blank">(http://gunicorn.org/)</a> <small>uwsgi --http :9090 --wsgi-file sample.py --callable api virtualenv=venv</small>
                 </li>
                 <li>
-                    mod_wsgi <a href="http://www.modwsgi.org/" target="_blank">(http://www.modwsgi.org/)</a>t
+                    mod_wsgi <a href="http://www.modwsgi.org/" target="_blank">(http://www.modwsgi.org/)</a>
                 </li>
             </ul>
         </section>
