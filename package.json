@@ -1,0 +1,28 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "description": "repository my presentations",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.4",
+    "reveal.js": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biancarosa/slides.git"
+  },
+  "keywords": [
+    "slides",
+    "technology"
+  ],
+  "author": "Bianca Rosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biancarosa/slides/issues"
+  },
+  "homepage": "https://github.com/biancarosa/slides#readme"
+}

@@ -1,5 +1,6 @@
 <html>
 <head>
+   <meta charset="UTF-8">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
     <link rel="stylesheet" href="node_modules/reveal.js/css/theme/blood.css">
@@ -37,11 +38,11 @@
                     <img src="images/eu.jpg" />
                 </div>
                 <div class="col-sm-6">
-                    <h4>Mas gosto tamb&eacute;m de...</h4>
+                    <h4>Mas gosto também de...</h4>
                     <ul>
                         <li>Entregar software com qualidade</li>
                         <li>Testes</li>
-                        <li>Refatorar c&oacute;digo</li>
+                        <li>Refatorar código</li>
                         <li>Cloud computing</li>
                         <li>Data Science</li>
                         <li>Cerveja</li>
@@ -63,22 +64,22 @@
                 <div>
                     <ul>
                         <li>
-                            GET /songs - Todas as m&uacute;sicas
+                            GET /songs - Todas as músicas
                         </li>
                         <li>
-                            GET /songs?title=Start me up - Filtra m&uacute;sicas
+                            GET /songs?title=Start me up - Filtra músicas
                         </li>
                         <li>
-                            POST /songs - Cria uma m&uacute;sica
+                            POST /songs - Cria uma música
                         </li>
                         <li>
-                            PUT /songs/:id - Atualiza uma m&uacute;sica
+                            PUT /songs/:id - Atualiza uma música
                         </li>
                         <li>
-                            DELETE /songs/:id - Deleta uma m&uacute;sica
+                            DELETE /songs/:id - Deleta uma música
                         </li>
                         <li>
-                            GET /albums/:id/songs - Todas as m&uacute;sicas de um &aacute;lbum
+                            GET /albums/:id/songs - Todas as músicas de um álbum
                         </li>
                     </ul>
                 </div>
@@ -117,7 +118,7 @@
                 </ul>
             </section>
             <section>
-                    <h4>Tire suas pr&oacute;prias conclus&otilde;es.</h4>
+                    <h4>Tire suas próprias conclusões.</h4>
             </section>
         </section>
         <section>
@@ -169,6 +170,38 @@
             </section>
         </section>
 
+        <section>
+            <section>
+                <h2>Organizando seu código</h2>
+            </section>
+            <section>
+                <h3>1. Vocé é livre.</h3>
+                <img src="images/freddie.gif"/>
+            </section>
+            <section>
+                <h3>2. Com grandes poderes vem grandes responsabilidades</h3>
+                <img src="images/uncle-ben.jpg"/>
+            </section>
+            <section>
+                <h3>3. Tem que fazer sentido pra você e pra sua aplicação</h3>
+                <img src="images/makes-sense.gif"/>
+            </section>
+            <section>
+                <h3>Como eu faço</h3>
+                <ul>
+                    <li>Pacote de modelos</h1>
+                    <li>Pacote de serviços (responsável pela regra de negócio)</h1>
+                    <li>Pacote de middlewares</h1>
+                    <li>Pacote de hooks</h1>
+                    <li>Pacote de views</h1>
+                    <li>Pacote de resources (rotas)</h1>
+                    <li>Eventualmente, pacotes de utilitários (be careful)</li>
+            </section>
+            <section>
+                <h1>Faça melhor.</h1>
+                Encontre a arquitetura perfeita. Pra você, pro seu projeto, pra sua equipe.
+            </section>
+        </section>
 
         <section>
             <h1>Rodando</h1>
@@ -183,6 +216,17 @@
                     mod_wsgi <a href="http://www.modwsgi.org/" target="_blank">(http://www.modwsgi.org/)</a>
                 </li>
             </ul>
+        </section>
+        <section>
+            <h1>Testando</h1>
+            <ul>
+                <li>Nose + Unittest</li>
+                <li>REST API Testing - <a href="http://frisbyjs.com/" target="_blank">http://frisbyjs.com/</a><li>
+            </ul>
+        </section>
+
+        <section>
+            <img src="images/the-end.jpg"/>
         </section>
     </div>
 </div>
