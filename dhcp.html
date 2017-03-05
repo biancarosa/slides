@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/league.min.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1 class="text-nowrap">DHCP</h1>
+        </section>
+        <section>
+            <h2>Dynamic Host Configuration Protocol</h2>
+        </section>
+        <section>
+            <h2>Protocolo de configuração dinâmica de host</h2>
+        </section>
+        <section>
+            <h1>História</h1>
+        </section>
+        <section>
+            <h1>História</h1>
+            <p>Reverse Address Resolution Protocol (RARP) - <a href="https://tools.ietf.org/html/rfc903">RFC 903</a></p>
+            <p>Bootstrap Protocol (BOOTP) - <a href="https://tools.ietf.org/html/rfc951">RFC 951</a></p>
+            <p>Dynamic Host Configuration Protocol (DHCP) - <a href="https://tools.ietf.org/html/rfc2131">RFC 2131</a></p>
+            <p>Dynamic Host Configuration Protocol for IPv6 (DHCPv6) - <a href="https://tools.ietf.org/html/rfc3315">RFC 3315</a></p>
+        </section>
+        <section>
+            <h1>Como funciona</h1>
+        </section>
+        <section>
+            <h1>Tipos de Alocação</h1>
+            <ol>
+                <li>Dinâmica</li>
+                <li>Automática</li>
+                <li class=text-nowrap">Manual ou Estática</li>
+            </ol>
+        </section>
+        <section>
+            <h1>Processo de obtenção de um endereço IP</h1>
+        </section>
+        <section>
+            <h1>DHCP discovery</h1>
+        </section>
+        <section>
+            <h1>DHCP discovery</h1>
+            <p>Mensagem: DHCPDISCOVER</p>
+            <p>IP: source=0.0.0.0; destination=255.255.255.255</p>
+            <p>UDP: source port=68; destination port=67</p>
+        </section>
+        <section>
+            <h1>DHCP offer</h1>
+        </section>
+        <section>
+            <h1>DHCP offer</h1>
+            <p>Mensagem: DHCPOFFER</p>
+            <p>IP: source=192.168.1.1; destination=255.255.255.255</p>
+            <p>UDP: source port=67; destination port=68</p>
+        </section>
+        <section>
+            <h1>DHCP request</h1>
+        </section>
+        <section>
+            <h1>DHCP request</h1>
+            <p>Mensagem: DHCPREQUEST</p>
+            <p>IP: source=0.0.0.0 destination=255.255.255.255;</p>
+            <p>UDP: source port=68; destination port=67</p>
+        </section>
+        <section>
+            <h1>DHCP acknowledgement</h1>
+        </section>
+        <section>
+            <h1>DHCP acknowledgement</h1>
+            <p>Mensagem: DHCPACK</p>
+            <p>IP: source=0.0.0.0 destination=255.255.255.255;</p>
+            <p>UDP: source port=68; destination port=67</p>
+        </section>
+        <section>
+            <h1>Outras mensagens</h1>
+            <ol>
+                <li>DHCPDECLINE</li>
+                <li>DHCPRELEASE</li>
+                <li>DHCPINFORM</li>
+                <li>DHCPNAK</li>
+            </ol>
+        </section>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.min.js"></script>
+<script>
+    Reveal.initialize();
+</script>
+</body>
+</html>
