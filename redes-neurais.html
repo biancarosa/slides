@@ -2,14 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/white.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/white.css">
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
         <section>
           <h1 class="text-nowrap">Redes Neurais</h1>
+          <aside class="notes">
+            Olar.
+          </aside>
         </section>
         <section>
           <h1>Bianca Rosa</h1>
@@ -20,6 +23,13 @@
             <li class="fragment">JS</li>
             <li class="fragment">Data Science</li>
           </ul>
+          <aside class="notes">
+            Desenvolvedora de software, estudante de Ciência da Computação.
+            Python é paixão não só por me identificar com a tecnologia, hoje, mas
+            especialmente pela forma que a comunidade Python me recebeu nesses
+            últimos anos. É dificil encontrar uma comunidade tão diversa e tão
+            disposta a abraçar a diversidade.
+          </aside>
         </section>
         <section>
           <h2>Disclaimer</h2>
@@ -135,7 +145,10 @@
           </ul>
         </section>
         <section>
-          <h1>Perceptrons</h1>
+          <img src="images/neural-nets/nand-gate.svg" />
+        </section>
+        <section>
+          <img src="images/neural-nets/nand-gate.png" />
         </section>
         <section>
           <h1>Multi Layer Perceptrons</h1>
@@ -145,11 +158,26 @@
             <li class="fragment">Weights (Pesos): Números reais expressando a importância dos inputs.
           </ul>
         </section>
+        <section>
+          <ul>
+            <li class="fragment">
+              Redes neurais não são balas de prata.
+            </li>
+            <li class="fragment">
+              ... e não devem ser usadas apenas por preguiça de implementar um modelo matemático que atenda sua necessidade.
+            </li>
+          </ul>
+        </section>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.min.js"></script>
+<script src="../reveal.js/lib/js/head.min.js"></script>
+<script src="../reveal.js/js/reveal.js"></script>
 <script>
-    Reveal.initialize();
+    Reveal.initialize({
+      	dependencies: [
+      		{ src: '../reveal.js/plugin/notes/notes.js'}
+      	]
+    });
 </script>
 </body>
 </html>
