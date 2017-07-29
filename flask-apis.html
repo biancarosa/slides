@@ -67,13 +67,13 @@ def health_check():
         </section>
         <section>
           <pre><code class="python">from mongoengine import (
-  Document, StringField, DateField
+  Document, StringField, DateTimeField
 )
 
 class Event(Document):
 
   name = StringField(required=True)
-  date = DateField()</code></pre>
+  date = DateTimeField()</code></pre>
         </section>
         <section>
           <h1>REST</h1>
@@ -94,16 +94,51 @@ def list_events():
         </section>
         <section>
           <h1>HTTP Status Codes</h1>
-           200, 201, 404, 401, 403
+           <p>
+             200, 201, 401, 403, 404
+           </p>
+           <p>
+             <a href="https://http.cat">https://http.cat</a>
+           </p>
         </section>
         <section>
-          	<pre><code class="python">@app.route('/events')
+          	<pre><code class="python">@app.route('/events', methods=['POST'])
   def list_events():
       data = request.get_json()
       event = Event()
       event.name = data.get('name')
       event.date = data.get('date')
+      event.save()
       return jsonify(event), 201</code></pre>
+        </section>
+        <section>
+          <pre><code class="python">GET /events</code></pre>
+          <pre><code class="python">POST /events</code></pre>
+          <pre><code class="python">PUT /events</code></pre>
+          <pre><code class="python">DELETE /events</code></pre>
+        </section>
+        <section>
+          <h1>Acessando apenas um elemento</h1>
+          <pre><code class="python">GET /events/1</code></pre>
+        </section>
+        <section>
+          <h1>Associações</h1>
+          <pre><code class="python">GET /events/1/attendees</code></pre>
+        </section>
+        <section>
+          <h1>Apenas retornar o necessário</h1>
+          <pre><code class="python">GET /events/1?fields=date,attendees</code></pre>
+        </section>
+        <section>
+          <h1>Paginação</h1>
+          <pre><code class="python">GET /events?limit=5&offset=10</code></pre>
+        </section>
+        <section>
+      		<img class="plain" src="images/yay.gif"/>
+      		<p>twitter: <a href="http://twitter.com/__biancarosa">@__biancarosa</a></p>
+          <p>ESTAMOS CONTRATANDO!</p>
+          <p><a href="http://enter.stone.com.br">http://enter.stone.com.br</a></p>
+          <p>tks :)</p>
         </section>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
