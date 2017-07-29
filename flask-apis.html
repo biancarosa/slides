@@ -85,8 +85,25 @@ class Event(Document):
         <section>
         	<pre><code class="python">@app.route('/events')
 def list_events():
-    events = Events.objects()
+    events = Event.objects()
     return jsonify(events)</code></pre>
+        </section>
+        <section>
+          <h1>Verbos HTTP</h1>
+           GET, POST, PUT, DELETE
+        </section>
+        <section>
+          <h1>HTTP Status Codes</h1>
+           200, 201, 404, 401, 403
+        </section>
+        <section>
+          	<pre><code class="python">@app.route('/events')
+  def list_events():
+      data = request.get_json()
+      event = Event()
+      event.name = data.get('name')
+      event.date = data.get('date')
+      return jsonify(event), 201</code></pre>
         </section>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
