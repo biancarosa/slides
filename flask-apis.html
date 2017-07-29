@@ -46,6 +46,48 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'</code></pre>
         </section>
+        <section>
+        	<pre><code class="python">from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/health-check')
+def health_check():
+    return jsonify({message: 'I feel legendary.'})</code></pre>
+        </section>
+        <section>
+        	<pre><code class="python">from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/health-check')
+def health_check():
+    return jsonify({message: 'I feel legendary.'})</code></pre>
+        </section>
+        <section>
+          <pre><code class="python">mongoengine.connect('organizer', user='bia', password='supersecurepwd')</code></pre>
+        </section>
+        <section>
+          <pre><code class="python">from mongoengine import (
+  Document, StringField, DateField
+)
+
+class Event(Document):
+
+  name = StringField(required=True)
+  date = DateField()</code></pre>
+        </section>
+        <section>
+          <h1>REST</h1>
+           Representational State Transfer
+        </section>
+        <section>
+          <pre><code class="python">/events</code></pre>
+        </section>
+        <section>
+        	<pre><code class="python">@app.route('/events')
+def list_events():
+    events = Events.objects()
+    return jsonify(events)</code></pre>
+        </section>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
