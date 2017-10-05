@@ -41,9 +41,6 @@
                 </aside>
             </section>
             <section>
-                <h1>Redes Neurais com Python & Scikit</h1>
-            </section>
-            <section>
                 <h3>O que essa palestra não vai ter</h3>
                 <ul>
                     <li class="fragment">Muitas definições biológicas</li>
@@ -51,24 +48,45 @@
                     <li class="fragment">Muitas definições matemáticas</li>
                 </ul>
                 <aside class="notes">
-                    Eu dei a v0 dessa palestra na PythonNordeste, e lá tive a oportunidade de descobrir o que essa palestra não ia ser.
+                    ... porque eu fiz muito disso numa versão anterior dessa palestra e não deu certo.
                 </aside>
             </section>
             <section>
                 <h3>Mas o que são Redes Neurais?</h3>
                 Redes Neurais são representações computacionais de um neurônio humano.
-                Em algum momento as pessoas pensaram na idéia de simular o cérebro humano
-                para conseguir atingir um aprendizado de máquina similar (mas mais rápido e mais eficiente) 
-                do aprendizado humano.
                 <aside class="notes">
+                    Me esforcei pra essa ser a única definição da palestra, então.
                     Na verdade, só vai ter uma definição nesses slides.
+                </aside>
+            </section>
+            <section>
+                <h1>Problemas comuns</h1>
+                <ul>
+                    <li class="fragment">Sistemas de recomendação</li>
+                    <li class="fragment">Sistemas que se adaptam às preferências do usuário</li>
+                    <li class="fragment">Processamento de linguagem natural</li>
+                    <li class="fragment">Reconhecimento de dígitos</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Toolbelt</h1>
+                <ul>
+                    <li class="fragment">Python</li>
+                    <li class="fragment">Jupyter</li>
+                    <li class="fragment">Numpy</li>
+                    <li class="fragment">Scipy</li>
+                    <li class="fragment">Scikit</li>
+                </ul>
+                <aside class="notes">
+                    Na verdade você pode implementar uma rede neural na unha, mas vai ser um tanto quanto mais difícil.
                 </aside>
             </section>
             <section>
                 <h1>numpy</h1>
                 <p><a href="https://github.com/biancarosa/pybr-neural-nets/blob/master/numpy.ipynb">code!</a></p>
                 <aside class="notes">
-                    A gente vai acabar usando bastante esse pacote, porque ele suporta arrays e matrizes multidimensionais.               
+                    Vamos usar bastante esse pacote, porque ele facilita o uso de matrizes (que nada mais são do que arrays multidimensionais).               
+                    Então pra isso é legal a gente dar uma olhada nele!
                 </aside>
             </section>
             <section>
@@ -77,8 +95,22 @@
                 <p><a href="http://archive.ics.uci.edu/ml/datasets/Pen-Based+Recognition+of+Handwritten+Digits">dataset</a></p>
                 <p><a href="http://scikit-learn.org/stable/auto_examples/datasets/plot_digits_last_image.html">scikit</a></p>
                 <aside class="notes">
-                    A gente vai acabar usando bastante esse pacote, porque ele suporta arrays e matrizes multidimensionais.               
+                    Pra essa palestra, eu escolhi um problema comum bastante conhecido.
                 </aside>
+            </section>
+            <section>
+                <h1>Explorando o Conjunto de Dados</h1>
+                <p><a href="https://github.com/biancarosa/pybr-neural-nets/blob/master/exploratory-analysis.ipynb">code!</a></p>
+                <aside class="notes">
+                    Vamos entender o que é esse dataset?
+                    Ele é um dataset que representa dígitos escritos à mão.
+                    Dentro desse dicionário, existem várias coisas que não precisamos detalhar nesse momento,
+                    mas o que nos importa são duas chaves: chamada data e outra chama target.
+                </aside>
+            </section>
+            <section>
+                <h1>Implementando uma rede neural</h1>
+                <p><a href="https://github.com/biancarosa/pybr-neural-nets/blob/master/digit-recognition.ipynb">code!</a></p>
             </section>
             <section>
                 <p>
