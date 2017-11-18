@@ -246,31 +246,31 @@
   *********************************************/
  .reveal .controls .navigate-left,
  .reveal .controls .navigate-left.enabled {
-   border-right-color: #dd390c; }
+   border-right-color: #FF0000; }
 
  .reveal .controls .navigate-right,
  .reveal .controls .navigate-right.enabled {
-   border-left-color: #dd390c; }
+   border-left-color: #FF0000; }
 
  .reveal .controls .navigate-up,
  .reveal .controls .navigate-up.enabled {
-   border-bottom-color: #dd390c; }
+   border-bottom-color: #FF0000; }
 
  .reveal .controls .navigate-down,
  .reveal .controls .navigate-down.enabled {
-   border-top-color: #dd390c; }
+   border-top-color: #FF0000; }
 
  .reveal .controls .navigate-left.enabled:hover {
-   border-right-color: #dd390c; }
+   border-right-color: #FF0000; }
 
  .reveal .controls .navigate-right.enabled:hover {
-   border-left-color: #dd390c; }
+   border-left-color: #FF0000; }
 
  .reveal .controls .navigate-up.enabled:hover {
-   border-bottom-color: #dd390c; }
+   border-bottom-color: #FF0000; }
 
  .reveal .controls .navigate-down.enabled:hover {
-   border-top-color: #dd390c; }
+   border-top-color: #FF0000; }
 
  /*********************************************
   * PROGRESS BAR
