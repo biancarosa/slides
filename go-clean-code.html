@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
                 </ul>
             </section>
             <section>
-                <img src="images/profile/bia-gopher.png" height="400"/>
+                <img src="images/profile/bia-gopher.png" height="400" />
             </section>
             <section>
                 <a href="https://www.skoob.com.br/clean-code-a-handbook-of-agile-software-craftsmanship-53336ed58714.html">
@@ -38,9 +39,28 @@
             <section>
                 <p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
                 <p>Phil Karlton</p>
-            </section>                    
+            </section>
+            <section>
+                <pre class="highlight"><code>func parse(s string) string {
+                    return strings.Replace(s, " ", "", -1)
+                }</code></pre>
+            </section>
+            <section>
+                <pre class="highlight"><code>func removeSpaces(s string) string {
+                    return strings.Replace(s, " ", "", -1)
+                }</code></pre>
+            </section>                 
+            <section>
+                <pre class="highlight"><code>func remove(s string, char string) string {
+                    return strings.Replace(s, char, "", -1)
+                }</code></pre>
+            </section>
             <section>
                 <h1>Regra do Escoteiro</h1>
+                <h2>The Boy Scout Rule</h2>
+            </section>
+            <section>
+                Ao sair da área onde você estava acampado, deixe-a mais limpa do que quando a encontrou.
             </section>
             <section>
                 <h1>Comentários de código</h1>
@@ -69,7 +89,8 @@
     <script>
         Reveal.initialize({
             dependencies: [
-                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.min.js' }
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.min.js' },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', callback: function () { hljs.initHighlightingOnLoad(); } }
             ]
         });
     </script>
