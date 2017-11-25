@@ -22,10 +22,11 @@
                     <li class="fragment">Golang</li>
                     <li class="fragment">JS</li>
                     <li class="fragment">Agile</li>
-                    <li class="fragment">PythOnRio / Rails Girls RJ / WWG RJ</li>
+                    <li class="fragment">PythOnRio / Pyladies / Rails Girls RJ / WWG RJ</li>
                 </ul>
             </section>
             <section>
+                <h1>be a clean gopher</h1>
                 <img src="images/profile/bia-gopher.png" height="400" />
             </section>
             <section>
@@ -34,7 +35,7 @@
                 </a>
             </section>
             <section>
-                <h1>Nomeando métodos, funções e interfaces</h1>
+                <h1>Escolha bons nomes</h1>
             </section>
             <section>
                 <p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
@@ -42,18 +43,18 @@
             </section>
             <section>
                 <pre class="highlight"><code>func parse(s string) string {
-                    return strings.Replace(s, " ", "", -1)
-                }</code></pre>
+    return strings.Replace(s, " ", "", -1)
+}</code></pre>
             </section>
             <section>
                 <pre class="highlight"><code>func removeSpaces(s string) string {
-                    return strings.Replace(s, " ", "", -1)
-                }</code></pre>
+    return strings.Replace(s, " ", "", -1)
+}</code></pre>
             </section>                 
             <section>
                 <pre class="highlight"><code>func remove(s string, char string) string {
-                    return strings.Replace(s, char, "", -1)
-                }</code></pre>
+    return strings.Replace(s, char, "", -1)
+}</code></pre>
             </section>
             <section>
                 <h1>Regra do Escoteiro</h1>
@@ -61,7 +62,39 @@
             </section>
             <section>
                 Ao sair da área onde você estava acampado, deixe-a mais limpa do que quando a encontrou.
+            </section>          
+            <section>
+                <pre class="highlight"><code>func returnUsername(userId int) string {
+    if userId == 1 {
+        return "Maria"
+    } else if userId == 2 {
+        return "João"
+    } else if userId == 3 {
+        return "Joaquim"
+    } else if userId == 4 {
+        return "Ana Clara"
+    }
+    return "Não identificado"
+}</code></pre>
             </section>
+            <section>
+                <pre class="highlight"><code>var users map[int]string
+func init() {
+    users = map[int]string{
+        1: "Maria",
+        2: "João",
+        3: "Joaquim",
+        4: "Ana Clara",
+    }
+}
+func name(userID int) string {
+    name, ok := users[userID]
+    if ok == false {
+        return "Não identificado"
+    }
+    return name
+}</code></pre>
+            </section> 
             <section>
                 <h1>Comentários de código</h1>
             </section>
