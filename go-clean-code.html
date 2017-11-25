@@ -149,20 +149,47 @@ for _, document := range clientDocuments {
 }</code></pre>
             </section>
             <section>
-            </section>
-            <section>
                 <h1>Princípio da Responsabilidade Única (SRP)</h1>
             </section>
             <section>
-                <h1>DRY</h1>
+                    <pre class="highlight"><code>type fox struct{}
+                            
+func (f *fox) Say() {
+    fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+}</code></pre>
             </section>
             <section>
-                <h1>Dependências</h1>
+                    <pre class="highlight"><code>type fox struct{}
+                            
+func (f *fox) Say() {
+    fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+}
+
+func (f *fox) Meow() {
+    fmt.Println("Meow")
+}</code></pre>
+            </section>
+            <section><pre class="highlight"><code>type fox struct{}
+                
+func (f *fox) Say() {
+    fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+}
+
+type cat struct{}
+
+func (c *cat) Meow() {
+    fmt.Println("Meow")
+}</code></pre>
+            </section>
+            <section>
+                <h1>DRY</h1>
+                <p class="fragment">Don't Repeat Yourself</p>
+                <p class="fragment">A menos que você esteja criando complexidade desnecessária</p>
             </section>
             <section>
                 <img class="plain" src="images/yay.gif" />
                 <p>twitter: <a href="http://twitter.com/__biancarosa">@__biancarosa</a></p>
-                <p>slides: <a href="http://biancarosa.com.br">biancarosa.com.br</a>
+                <p>slides: <a href="http://biancarosa.com.br/slides/go-clean-code.html">biancarosa.com.br/slides/go-clean-code.html</a>
                     <p>tks :)</p>
             </section>
         </div>
