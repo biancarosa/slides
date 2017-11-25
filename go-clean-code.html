@@ -66,7 +66,6 @@
 }</code></pre>
             </section>
             <section>
-                    <h1>Leitura obrigatória</h1>
                     <h2>
                         <p>
                             <a href="https://golang.org/doc/effective_go.html#names">
@@ -101,7 +100,34 @@
             </section>
             <section>
                 Ao sair da área onde você estava acampado, deixe-a mais limpa do que quando a encontrou.
-            </section>          
+            </section>  
+            <section>
+                <pre class="highlight"><code>func (p *Person) EhHoraDeDormir() bool {
+    hora := false
+    if p.sono == true && !p.ocupada == false {
+        hora = true
+    } else if time.Now().Hour() > 21 {
+        hora = true
+    }
+    return hora
+}</code></pre>
+            </section>   
+            <section>
+                <pre class="highlight"><code>func (p *Person) HoraDeDormir() bool {
+    return p.sono == true && !p.ocupada == false || time.Now().Hour() > 21
+}</code></pre>
+            </section> 
+            <section>
+                <pre class="highlight"><code>func (p *Person) DevoDormir() bool {
+    if p.sono && !p.ocupada {
+        return true
+    }
+    if time.Now().Hour() > 21 {
+        return true
+    }
+    return false
+}</code></pre>
+            </section>           
             <section>
                 <pre class="highlight"><code>func returnUsername(userId int) string {
     if userId == 1 {
@@ -187,7 +213,115 @@ func (c *cat) Meow() {
                 <p class="fragment">A menos que você esteja criando complexidade desnecessária</p>
             </section>
             <section>
-                <img class="plain" src="images/yay.gif" />
+                <h1>SEMPRE cheque seus erros</h1>
+            </section>
+            <section>
+                <pre class="highlight"><code>func converte(s string) int {
+    n, _ := strconv.Atoi(s)
+    return n
+}</code></pre>                        
+            </section>
+            <section>
+                <pre class="highlight"><code>func converte(s string) (int, error) {
+    n, err := strconv.Atoi(s)
+    return n, err
+}</code></pre>                        
+            </section>
+            <section>
+                <pre class="highlight"><code>func converte(s string) (int) {
+    n, err := strconv.Atoi(s)
+    if err != nil {
+        n = 0
+        //log error
+    } 
+    return n
+}</code></pre>                        
+            </section>
+            <section>
+                <h1>O que não fazer</h1>
+            </section>
+            <section>
+                <img src="images/clean-code/behold.jpg"/>
+            </section>
+            <section>
+                <img src="images/clean-code/qq.jpg"/>
+            </section>
+            <section><pre class="highlight"><code>func hasPermission(roles []Role, statusFlows []StatusFlow, currentStatus, newStatus string) bool {
+    for _, role := range roles {
+        for _, statusFlow := range statusFlows {
+            if strings.ToLower(role.Name) == strings.ToLower(statusFlow.Role) {
+                if len(statusFlow.Flows) == 0 {
+                    return true
+                }
+                for _, permission := range statusFlow.Flows {
+                    if permission.From == currentStatus {
+                        for _, newStatuses := range permission.To {
+                            if newStatuses == newStatus {
+                                return true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false
+}
+</code></pre>
+            </section>
+            <section>
+                <h1>Mas como resolver?</h1>
+                <img class="fragment" src="images/clean-code/meditate.jpg"/>
+            </section>
+            <section><pre class="highlight"><code>func (u *User) HasPermission(fromStatus, toStatus string) bool {
+    for _, role := range u.roles {
+        return role.hasPermission(fromStatus, toStatus)
+    }
+    return false
+}</code></pre>
+            </section>
+            <section><pre class="highlight"><code>func (r *Role) hasPermission(fromStatus, toStatus string) bool {
+    flows := Flows()
+    flow := matchedFlow(flows, r.Name)
+    if flow != nil {
+        return true
+    }
+    return flow.IsTransitionAllowed(fromStatus, toStatus)
+}</code></pre>
+            </section>
+            <section><pre class="highlight"><code>func matchedFlow(statusFlows []StatusFlow, name string) *StatusFlow {
+    for _, statusFlow := range statusFlows {
+        if strings.EqualFold(name, statusFlow.Role) {
+            return &statusFlow
+        }
+    }
+    return nil
+}
+</code></pre>
+            </section>
+            <section><pre class="highlight"><code>func (f *StatusFlow) IsTransitionAllowed(from, to string) bool {
+    if len(f.Flows) == 0 {
+        return true
+    }
+    permission := f.PermissionForTransition(from)
+    for _, new := range permission.To {
+        if new == to {
+            return true
+        }
+    }
+    return false          
+}</code></pre>
+</section>
+<section><pre class="highlight"><code>func (f *StatusFlow) PermissionForTransition(name string) *Permission {
+    for _, permission := range f.Flows {
+        if permission.From == name {
+            return &permission
+        }
+    }
+    return nil
+}</code></pre>
+            </section>
+            <section>
                 <p>twitter: <a href="http://twitter.com/__biancarosa">@__biancarosa</a></p>
                 <p>slides: <a href="http://biancarosa.com.br/slides/go-clean-code.html">biancarosa.com.br/slides/go-clean-code.html</a>
                     <p>tks :)</p>
