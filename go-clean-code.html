@@ -19,7 +19,7 @@
                 <h2>dev@stone pagamentos</h2>
                 <ul>
                     <li class="fragment">Python</li>
-                    <li class="fragment">Golang</li>
+                    <li class="fragment">Go</li>
                     <li class="fragment">JS</li>
                     <li class="fragment">Agile</li>
                     <li class="fragment">PythOnRio / Pyladies / Rails Girls RJ / WWG RJ</li>
@@ -33,6 +33,16 @@
                 <a href="https://www.skoob.com.br/clean-code-a-handbook-of-agile-software-craftsmanship-53336ed58714.html">
                     <img src="images/clean-code/clean-code.png" height="600"/>
                 </a>
+            </section>
+            <section>
+                <h1>go fmt</h1>
+                <p class="fragment">Não tem nenhum motivo pra não usar a 
+                    <a href="https://golang.org/doc/effective_go.html#formatting">
+                        formatação padrão
+                </a> do Go.</p>
+                <p class="fragment">
+                    Dica: tente automatizar.
+                </p>
             </section>
             <section>
                 <h1>Escolha bons nomes</h1>
@@ -56,6 +66,36 @@
     return strings.Replace(s, char, "", -1)
 }</code></pre>
             </section>
+            <section>
+                    <h1>Leitura obrigatória</h1>
+                    <h2>
+                        <p>
+                            <a href="https://golang.org/doc/effective_go.html#names">
+                                Effective Go
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/golang/go/wiki/CodeReviewComments#variable-names">
+                                Nomes de variáveis
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/golang/go/wiki/CodeReviewComments#package-names">
+                                Nomes de pacotes
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/golang/go/wiki/CodeReviewComments#receiver-names">
+                                Nomes de receivers
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/golang/go/wiki/CodeReviewComments#named-result-parameters">
+                                Nome de retorno
+                            </a>
+                        </p>
+                    </h2>
+                </section>
             <section>
                 <h1>Regra do Escoteiro</h1>
                 <h2>The Boy Scout Rule</h2>
@@ -97,6 +137,19 @@ func name(userID int) string {
             </section> 
             <section>
                 <h1>Comentários de código</h1>
+            </section>
+            <section>
+                    <pre class="highlight"><code>// valida documentos
+for _, document := range clientDocuments {
+    go request(rc, url, &document, ro)
+}</code></pre>
+            </section>
+            <section>
+                    <pre class="highlight"><code>for _, doc := range documents {
+    go validate(channel, &doc)
+}</code></pre>
+            </section>
+            <section>
             </section>
             <section>
                 <h1>Princípio da Responsabilidade Única (SRP)</h1>
