@@ -38,6 +38,9 @@
                 <h1>Django</h1>
                 <ul>
                     <li>Estrutura do Projeto</li>
+                    <li>Como começar</li>
+                    <li>Persistência</li>
+                    <li>Performance</li>
                 </ul>
             </section>
             <section>
@@ -72,14 +75,42 @@
             </section>
             <section>
                 <h2>views.py</h2>
-                <p>Camada de apresentação dos seus modeloss.</p>
+                <p>Camada de apresentação dos seus modelos.</p>
+            </section>
+            <section>
+                <h1>Como começar</h1>
+                <pre class="highlight"><code>pip install django
+django startproject myproject</code></pre>
+            </section>
+            <section>
+                <h1>Persistência</h1>
+                <ul>
+                    <li class="fragment">ORM do próprio Django.</li>
+                    <li class="fragment">Para trocar de banco de dados, basta alterar o settings.</li>
+                    <li class="fragment">Funciona bem com bancos de dados relacionais.</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Performance</h1>
+                <ul>
+                    <li class="fragment">Cuidado com ORMs :)</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Migrations</h1>
+                <p>Gerencia mudanças no modelo, gerando arquivos de migração versionados.</p>
+            </section>
+            <section>
+                <h1>App de Exemplo</h1>
+                <a href="http://github.com/biancarosa/django-dashboard-api">django-dashboard-api</a>
+                <p class="small">* com django rest framework</p>
             </section>
             <section>
                 <p>twitter:
                     <a href="http://twitter.com/__biancarosa">@__biancarosa</a>
                 </p>
                 <p>slides:
-                    <a href="http://biancarosa.com.br/slides/py-web-frameworks.html">biancarosa.com.br/slides/go-clean-code.html</a>
+                    <a href="http://biancarosa.com.br/slides/web-frameworks-pyse-2018.html">biancarosa.com.br/slides/go-clean-code.html</a>
                 </p>
                 <p>tks :)</p>
             </section>
