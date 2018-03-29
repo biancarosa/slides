@@ -16,12 +16,13 @@
             </section>
             <section>
                 <h1>Bianca Rosa</h1>
-                <h3>dev @ stone pagamentos</h3>
+                <h3>dev @ stone</h3>
                 <ul>
                     <li class="fragment">Python</li>
                     <li class="fragment">Go</li>
                     <li class="fragment">JS</li>
-                    <li class="fragment">PythOnRio / Pyladies / Rails Girls RJ / Gophers RJ / WWG RJ</li>
+                    <li class="fragment">PythOnRio / Gophers RJ </li>
+                    <li class="fragment">Pyladies / Rails Girls RJ / WWG RJ</li>
                 </ul>
             </section>
             <section>
@@ -29,7 +30,6 @@
                 <ul>
                     <li class="fragment">Django</li>
                     <li class="fragment">Flask</li>
-                    <li class="fragment">Falcon</li>
                     <li class="fragment">Sanic</li>
                     <li class="fragment">Aiohttp</li>
                 </ul>
@@ -56,26 +56,51 @@
             <section>
                 <h2>models.py</h2>
                 <p>Classes de modelo, diretamente mapeadas para seus modelos de banco de dados.</p>
+                <p>Faz sentido quebrar em um pacote de modelos caso seu projeto cresça.</p>
+            </section>
+            <section>
+                <pre class="highlight"><code>from django.db import models
+from django.contrib.auth.models import User
+from django import db
+
+class Settings(db.models.Model):
+    COLORS = (
+        (1, 'red'),
+        (2, 'blue'),
+        (3, 'green')
+    )
+    user = models.OneToOneField(User, on_delete=models.CASCADE) 
+    preferred_color = db.models.IntegerField(choices=COLORS)</code></pre>
             </section>
             <section>
                 <h2>settings.py</h2>
                 <p>Auto-gerado pelo startproject do Django, alterar conforme necessário.</p>
+            </section>
+            <section>
+                <pre class="highlight"><code># todo exemplo</code></pre>
             </section>
             <section>
                 <h2>tests.py</h2>
                 <p>Entry point para seus testes.</p>
+                <p>Faz sentido quebrar em um pacote de testes quando seus testes crescerem.</p>
             </section>
             <section>
-                <h2>settings.py</h2>
-                <p>Auto-gerado pelo startproject do Django, alterar conforme necessário.</p>
+                <pre class="highlight"><code># todo exemplo</code></pre>
             </section>
             <section>
                 <h2>urls.py</h2>
                 <p>Mapeamento de URLs do Django.</p>
             </section>
             <section>
+                <pre class="highlight"><code># todo exemplo</code></pre>
+            </section>
+            <section>
                 <h2>views.py</h2>
                 <p>Camada de apresentação dos seus modelos.</p>
+                <p>Também faz sentido virar um pacote junto com o de modelos.</p>
+            </section>
+            <section>
+                <pre class="highlight"><code># todo exemplo</code></pre>
             </section>
             <section>
                 <h1>Como começar</h1>
@@ -89,6 +114,10 @@ django startproject myproject</code></pre>
                     <li class="fragment">Para trocar de banco de dados, basta alterar o settings.</li>
                     <li class="fragment">Funciona bem com bancos de dados relacionais.</li>
                 </ul>
+            </section>
+            <section>
+                <h1>Persistência - DBs não relacionais</h1>
+                <a href="https://staltz.com/djangoconfi-mongoengine/">Artigo sobre MongoEngine + Django</a>
             </section>
             <section>
                 <h1>Performance</h1>
@@ -110,7 +139,7 @@ django startproject myproject</code></pre>
                     <a href="http://twitter.com/__biancarosa">@__biancarosa</a>
                 </p>
                 <p>slides:
-                    <a href="http://biancarosa.com.br/slides/web-frameworks-pyse-2018.html">biancarosa.com.br/slides/go-clean-code.html</a>
+                    <a href="http://biancarosa.com.br/slides/web-frameworks-pyse-2018.html">biancarosa.com.br/slides/web-frameworks-pyse-2018.html</a>
                 </p>
                 <p>tks :)</p>
             </section>
