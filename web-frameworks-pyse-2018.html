@@ -214,8 +214,9 @@ def hello():
             </section>
             <section>
                 <h1>Como começar</h1>
-                <pre class="highlight"><code>pip install django
-django startproject myproject</code></pre>
+                <pre class="highlight"><code>pip install flask
+export FLASK_APP=hello.py
+flask run</code></pre>
             </section>
             <section>
                 <h1>Blueprints</h1>
@@ -234,6 +235,56 @@ app.register_blueprint(app)</code></pre>
                     <li class="fragment">Flask-Celery</li>
                     <li class="fragment">Flask-CORS</li>
                     <li class="fragment"><a href="http://flask.pocoo.org/extensions/">e muito mais...</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Sanic</h1>
+                <ul>
+                    <li>Estrutura do Projeto</li>
+                    <li>Como começar</li>
+                    <li>Blueprints</li>
+                    <li>Extensões</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Estrutura do Projeto</h1>
+                <p>hello.py</p>
+                <pre class="highlight"><code>from sanic import Sanic
+from sanic.response import json
+
+app = Sanic()
+
+@app.route("/")
+async def test(request):
+    return json({"hello": "world"})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)</code></pre>
+            </section>
+            <section>
+                <h1>Como começar</h1>
+                <pre class="highlight"><code>pip install sanic
+python hello.py</code></pre>
+            </section>
+            <section>
+                <h1>Blueprints</h1>
+                <pre class="highlight"><code>from sanic import Sanic
+from my_blueprint import bp
+
+app = Sanic(__name__)
+app.blueprint(bp)
+
+app.run(host='0.0.0.0', port=8000, debug=True)</code></pre>
+            </section>
+            <section>
+                <h1>Extensões</h1>
+                <ul>
+                    <li class="fragment">Sanic-GraphQL</li>
+                    <li class="fragment">Sanic-EnvConfig</li>
+                    <li class="fragment">Sanic-Limiter</li>
+                    <li class="fragment">Sanic-CORS</li>
+                    <li class="fragment">Sanic-Transmute</li>
+                    <li class="fragment"><a href="https://sanic.readthedocs.io/en/latest/sanic/extensions.html">e muito mais...</a></li>
                 </ul>
             </section>
             <section>
