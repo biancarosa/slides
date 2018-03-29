@@ -41,6 +41,8 @@
                     <li>Como começar</li>
                     <li>Persistência</li>
                     <li>Performance</li>
+                    <li>Migrations</li>
+                    <li>App de Exemplo</li>
                 </ul>
             </section>
             <section>
@@ -77,7 +79,36 @@ class Settings(db.models.Model):
                 <p>Auto-gerado pelo startproject do Django, alterar conforme necessário.</p>
             </section>
             <section>
-                <pre class="highlight"><code># todo exemplo</code></pre>
+                <pre class="highlight"><code>DEBUG = True
+
+ALLOWED_HOSTS = []
+
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'dashboard_api',
+    'rest_framework',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+ROOT_URLCONF = 'dashboard_api.urls'
+</code></pre>
             </section>
             <section>
                 <h2>tests.py</h2>
@@ -85,14 +116,31 @@ class Settings(db.models.Model):
                 <p>Faz sentido quebrar em um pacote de testes quando seus testes crescerem.</p>
             </section>
             <section>
-                <pre class="highlight"><code># todo exemplo</code></pre>
+                <pre class="highlight"><code>from django.test import TestCase
+
+# Create your tests here.</code></pre>
             </section>
             <section>
                 <h2>urls.py</h2>
                 <p>Mapeamento de URLs do Django.</p>
             </section>
             <section>
-                <pre class="highlight"><code># todo exemplo</code></pre>
+                <pre class="highlight"><code>"""dashboard_api URL Configuration"""
+from django.conf.urls import url, include
+
+from rest_framework import routers, viewsets
+
+from dashboard_api.views.user import UserViewSet
+from dashboard_api.views.settings import SettingsViewSet
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'settings', SettingsViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+]</code></pre>
             </section>
             <section>
                 <h2>views.py</h2>
@@ -100,7 +148,14 @@ class Settings(db.models.Model):
                 <p>Também faz sentido virar um pacote junto com o de modelos.</p>
             </section>
             <section>
-                <pre class="highlight"><code># todo exemplo</code></pre>
+                <pre class="highlight"><code>from rest_framework import viewsets
+                    
+from dashboard_api.models import Settings
+from dashboard_api.serializers.settings import SettingsSerializer
+        
+class SettingsViewSet(viewsets.ModelViewSet):
+    queryset = Settings.objects.all()
+serializer_class = SettingsSerializer</code></pre>
             </section>
             <section>
                 <h1>Como começar</h1>
@@ -123,6 +178,7 @@ django startproject myproject</code></pre>
                 <h1>Performance</h1>
                 <ul>
                     <li class="fragment">Cuidado com ORMs :)</li>
+                    <li class="fragment"><a href="https://medium.com/@hansonkd/performance-problems-in-the-django-orm-1f62b3d04785">Solving Performance Problems with Django ORM</a></li>
                 </ul>
             </section>
             <section>
@@ -130,9 +186,55 @@ django startproject myproject</code></pre>
                 <p>Gerencia mudanças no modelo, gerando arquivos de migração versionados.</p>
             </section>
             <section>
+
+            </section>
+            <section>
                 <h1>App de Exemplo</h1>
                 <a href="http://github.com/biancarosa/django-dashboard-api">django-dashboard-api</a>
                 <p class="small">* com django rest framework</p>
+            </section>
+            <section>
+                <h1>Flask</h1>
+                <ul>
+                    <li>Estrutura do Projeto</li>
+                    <li>Como começar</li>
+                    <li>Blueprints</li>
+                    <li>Extensões</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Estrutura do Projeto</h1>
+                <p>hello.py</p>
+                <pre class="highlight"><code>from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"</code></pre>
+            </section>
+            <section>
+                <h1>Como começar</h1>
+                <pre class="highlight"><code>pip install django
+django startproject myproject</code></pre>
+            </section>
+            <section>
+                <h1>Blueprints</h1>
+                <p>Diga tchau a arquivos gigantes de rota!</p>
+                <pre class="highlight"><code>from flask import Flask
+app = Flask(__name__)
+
+from myapp.blueprints.my_blueprint
+app.register_blueprint(app)</code></pre>
+            </section>
+            <section>
+                <h1>Extensões</h1>
+                <ul>
+                    <li class="fragment">Flask-Admin</li>
+                    <li class="fragment">Flask-Cache</li>
+                    <li class="fragment">Flask-Celery</li>
+                    <li class="fragment">Flask-CORS</li>
+                    <li class="fragment"><a href="http://flask.pocoo.org/extensions/">e muito mais...</a></li>
+                </ul>
             </section>
             <section>
                 <p>twitter:
@@ -144,8 +246,6 @@ django startproject myproject</code></pre>
                 <p>tks :)</p>
             </section>
         </div>
-        </section>
-    </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
