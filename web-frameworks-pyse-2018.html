@@ -186,9 +186,6 @@ django startproject myproject</code></pre>
                 <p>Gerencia mudanças no modelo, gerando arquivos de migração versionados.</p>
             </section>
             <section>
-
-            </section>
-            <section>
                 <h1>App de Exemplo</h1>
                 <a href="http://github.com/biancarosa/django-dashboard-api">django-dashboard-api</a>
                 <p class="small">* com django rest framework</p>
@@ -200,6 +197,8 @@ django startproject myproject</code></pre>
                     <li>Como começar</li>
                     <li>Blueprints</li>
                     <li>Extensões</li>
+                    <li>Performance</li>
+                    <li>App de Exemplo</li>
                 </ul>
             </section>
             <section>
@@ -234,8 +233,18 @@ app.register_blueprint(app)</code></pre>
                     <li class="fragment">Flask-Cache</li>
                     <li class="fragment">Flask-Celery</li>
                     <li class="fragment">Flask-CORS</li>
+                    <li class="fragment">Flask-SQLAlchemy</li>
                     <li class="fragment"><a href="http://flask.pocoo.org/extensions/">e muito mais...</a></li>
                 </ul>
+            </section>
+            <section>
+                <h1>Performance</h1>
+                <p>Depende bastante do que você coloca de extensões / dependências.</p>
+            </section>
+            <section>
+                <h1>App de Exemplo</h1>
+                <a href="http://github.com/biancarosa/flask-dashboard-api">flask-dashboard-api</a>
+                <p class="small">* com flask restful</p>
             </section>
             <section>
                 <h1>Sanic</h1>
@@ -244,6 +253,7 @@ app.register_blueprint(app)</code></pre>
                     <li>Como começar</li>
                     <li>Blueprints</li>
                     <li>Extensões</li>
+                    <li>App de Exemplo</li>
                 </ul>
             </section>
             <section>
@@ -286,6 +296,61 @@ app.run(host='0.0.0.0', port=8000, debug=True)</code></pre>
                     <li class="fragment">Sanic-Transmute</li>
                     <li class="fragment"><a href="https://sanic.readthedocs.io/en/latest/sanic/extensions.html">e muito mais...</a></li>
                 </ul>
+            </section>
+            <section>
+                <h1>Performance</h1>
+                <p>Assim como o Flask, depende bastante do que você coloca de extensões / dependências.</p>
+                <p class="fragment">Usa todo o poder do Python3 para executar código de forma assíncrona.</p>
+                <p class="fragment">Usa o uvloop, uma implementação mais rápida do aioloop padrão.</p>
+                <p class="fragment">Usa o httptools para serializar mais rapidamente.</p>
+            </section>
+            <section>
+                <h1>App de Exemplo</h1>
+                <a href="http://github.com/biancarosa/sanic-dashboard-api">sanic-dashboard-api</a>
+            </section>
+            <section>
+                #todo aiohttp
+            </section>
+            <section>
+                <h1>outros frameworks web</h1>
+                <ul>
+                    <li>CherryPy</li>
+                    <li>Web2Py</li>
+                    <li>web.py</li>
+                    <li>Rocket</li>
+                    <li>API Star</li>
+                    <li>Web2Py</li>
+                    <li>Falcon</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Mas como escolher?</h1>
+            </section>
+            <section>
+                <p>Não existe bala de prata.</p>
+            </section>
+            <section>
+                <h1>Critérios</h1>
+                <h2 class="fragment">Produtividade</h2>
+                <p class="fragment">O que é melhor pro seu time</p>
+            </section>
+            <section>
+                <h1>Critérios</h1>
+                <h2 class="fragment">Performance</h2>
+                <p class="fragment">Entender se de fato é importante (mas nunca faz mal)</p>
+            </section>
+            <section>
+                <h1>Critérios</h1>
+                <h2 class="fragment">Documentação</h2>
+                <p class="fragment">Quanto tempo você vai demorar pra achar uma resposta pro seu problema na documentação</p>
+            </section>
+            <section>
+                <h1>Critérios</h1>
+                <h2 class="fragment">Comunidade</h2>
+                <p class="fragment">Tamanho da comunidade, quantas pessoas usam esse projeto ativamente</p>
+            </section>
+            <section>
+
             </section>
             <section>
                 <p>twitter:
