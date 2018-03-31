@@ -56,6 +56,12 @@
                 </ul>
             </section>
             <section>
+                <img height="500" src="images/django_diagram.png"/>
+                <p>
+                    <small>imagem: <a href="http://berinhard.github.io/talks/pyse_testing">http://berinhard.github.io/talks/pyse_testing</a></small>
+                </p>
+            </section>
+            <section>
                 <h2>models.py</h2>
                 <p>Classes de modelo, diretamente mapeadas para seus modelos de banco de dados.</p>
                 <p>Faz sentido quebrar em um pacote de modelos caso seu projeto cresça.</p>
@@ -109,6 +115,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'dashboard_api.urls'
 </code></pre>
+            <p><small>arquivo completo: <a href="https://github.com/biancarosa/django-dashboard-api/blob/master/dashboard_api/settings.py">https://github.com/biancarosa/django-dashboard-api/blob/master/dashboard_api/settings.py</a></small></p>
             </section>
             <section>
                 <h2>tests.py</h2>
@@ -155,7 +162,7 @@ from dashboard_api.serializers.settings import SettingsSerializer
         
 class SettingsViewSet(viewsets.ModelViewSet):
     queryset = Settings.objects.all()
-serializer_class = SettingsSerializer</code></pre>
+    serializer_class = SettingsSerializer</code></pre>
             </section>
             <section>
                 <h1>Como começar</h1>
@@ -257,8 +264,8 @@ app.register_blueprint(app)</code></pre>
             </section>
             <section>
                 <h1>Async vs Sync</h1>
-                <img class="fragment" src="images/sync.png"/>
-                <img class="fragment" src="images/async.png"/>
+                <img class="fragment" height="200" src="images/sync.png"/>
+                <img class="fragment" height="200" src="images/async.png"/>
             </section>
             <section>
                 <h1>Estrutura do Projeto</h1>
@@ -283,7 +290,7 @@ python web.py</code></pre>
             </section>
             <section>
                 <h1>App de Exemplo</h1>
-                <a href="http://github.com/biancarosa/aiohttp-dashboard-api">flask-dashboard-api</a>
+                <a href="http://github.com/biancarosa/aiohttp-dashboard-api">aiohttp-dashboard-api</a>
             </section>
             <section>
                 <h1>Sanic</h1>
@@ -384,6 +391,9 @@ app.run(host='0.0.0.0', port=8000, debug=True)</code></pre>
                 <h1>Critérios</h1>
                 <h2 class="fragment">Comunidade</h2>
                 <p class="fragment">Tamanho da comunidade, quantas pessoas usam esse projeto ativamente</p>
+            </section>
+            <section>
+                <h1>Follow your heart <3</h1>
             </section>
             <section>
                 <p>twitter:
