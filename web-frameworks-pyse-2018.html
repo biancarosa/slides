@@ -30,8 +30,8 @@
                 <ul>
                     <li class="fragment">Django</li>
                     <li class="fragment">Flask</li>
-                    <li class="fragment">Sanic</li>
                     <li class="fragment">Aiohttp</li>
+                    <li class="fragment">Sanic</li>
                 </ul>
             </section>
             <section>
@@ -247,6 +247,43 @@ app.register_blueprint(app)</code></pre>
                 <p class="small">* com flask restful</p>
             </section>
             <section>
+                <h1>Aiohttp</h1>
+                <ul>
+                    <li>Async vs Sync</li>
+                    <li>Estrutura do Projeto</li>
+                    <li>Como começar</li>
+                    <li>App de Exemplo</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Async vs Sync</h1>
+            </section>
+            <section>
+                <h1>Estrutura do Projeto</h1>
+                <p>web.py</p>
+                <pre class="highlight"><code>from aiohttp import web
+
+async def handle(request):
+    name = request.match_info.get('name', "Anonymous")
+    text = "Hello, " + name
+    return web.Response(text=text)
+
+app = web.Application()
+app.add_routes([web.get('/', handle),
+                web.get('/{name}', handle)])
+
+web.run_app(app)</code></pre>
+            </section>
+            <section>
+                <h1>Como começar</h1>
+                <pre class="highlight"><code>pip install aiohttp
+python web.py</code></pre>
+            </section>
+            <section>
+                <h1>App de Exemplo</h1>
+                <a href="http://github.com/biancarosa/aiohttp-dashboard-api">flask-dashboard-api</a>
+            </section>
+            <section>
                 <h1>Sanic</h1>
                 <ul>
                     <li>Estrutura do Projeto</li>
@@ -309,9 +346,6 @@ app.run(host='0.0.0.0', port=8000, debug=True)</code></pre>
                 <a href="http://github.com/biancarosa/sanic-dashboard-api">sanic-dashboard-api</a>
             </section>
             <section>
-                #todo aiohttp
-            </section>
-            <section>
                 <h1>outros frameworks web</h1>
                 <ul>
                     <li>CherryPy</li>
@@ -319,8 +353,8 @@ app.run(host='0.0.0.0', port=8000, debug=True)</code></pre>
                     <li>web.py</li>
                     <li>Rocket</li>
                     <li>API Star</li>
-                    <li>Web2Py</li>
                     <li>Falcon</li>
+                    <li>Bottle</li>
                 </ul>
             </section>
             <section>
