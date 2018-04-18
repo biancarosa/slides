@@ -16,16 +16,48 @@
             </section>
             <section>
                 <h1>Bianca Rosa</h1>
-                <img class="plain" height="400" src="images/pic1.jpg"/>
-            </section>
-            <section>
-                <h3>dev @ stone</h3>
+                <img class="plain" height="300" src="images/profile/bia-gopher.png" />
                 <ul>
-                    <li class="fragment">Python</li>
-                    <li class="fragment">Go</li>
-                    <li class="fragment">JS</li>
+                    <li class="fragment">Python / Go / Lua / JS</li>
                     <li class="fragment">PythOnRio / Gophers RJ </li>
                     <li class="fragment">Pyladies / Rails Girls RJ / WWG RJ</li>
+                </ul>
+            </section>
+            <section>
+                <p>A standard library do Go é bastante poderosa.</p>
+                <p class="fragment">Portanto, não utilizar um framework é perfeitamente aceitável</p>
+                <aside class="notes">
+                    Falar sobre a divisão de pacotes. Sobre a possibilidade de baixar apenas o necessário, mesmo da STD lib. *
+                </aside>
+            </section>
+            <section>
+                <pre class="highlight"><code>package main
+
+import (
+	"fmt"
+	"io"
+	"net/http"
+)
+
+func hello(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hello, TDC!")
+}
+
+func main() {
+	http.HandleFunc("/", hello)
+	fmt.Println("Serving http...")
+	http.ListenAndServe(":8000", nil)
+}</code></pre>
+            </section>
+            <section>
+                <h1>Frameworks</h1>
+                <ul>
+                    <li>Echo</li>
+                    <li>Gin</li>
+                    <li>Martini</li>
+                    <li>Beego</li>
+                    <li>Revel</li>
+                    <li>Traffic</li>
                 </ul>
             </section>
             <section>
