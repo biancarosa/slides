@@ -24,6 +24,14 @@
                 </ul>
             </section>
             <section>
+                <ul>
+                    <li>Sobre frameworks</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Devo ou não usar um framework web em Go?</h1>
+            </section>
+            <section>
                 <p>A standard library do Go é bastante poderosa.</p>
                 <p class="fragment">Portanto, não utilizar um framework é perfeitamente aceitável</p>
                 <aside class="notes">
@@ -50,7 +58,43 @@ func main() {
 }</code></pre>
             </section>
             <section>
-                <h1>Frameworks</h1>
+                <pre class="highlight"><code>package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "net/http"
+)
+
+type Greeting struct {
+    Message string `json:"msg"`
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+    person := Greeting{Message: "Hello"}
+    jsonPerson, err := json.Marshal(person)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    w.Header().Set("Content-Type", "application/json")
+    w.Write(jsonPerson)
+}
+
+func main() {
+    http.HandleFunc("/", hello)
+    fmt.Println("Serving http...")
+    http.ListenAndServe(":8000", nil)
+}</code></pre>
+            </section>
+            <section>
+                <p>
+                    <a href="https://github.com/biancarosa/golang-http-server">github.com/biancarosa/golang-http-server</a>
+                </p>
+            </section>
+            <section>
+                <h2>Frameworks</h2>
                 <ul>
                     <li>Echo</li>
                     <li>Gin</li>
@@ -58,12 +102,75 @@ func main() {
                     <li>Beego</li>
                     <li>Revel</li>
                     <li>Traffic</li>
+                    <li>... e outros que eu não conheço</li>
                 </ul>
             </section>
             <section>
-                <p>twitter: <a href="http://twitter.com/__biancarosa">@__biancarosa</a></p>
-                <p>slides: <a href="http://biancarosa.com.br/slides/go-clean-code.html">biancarosa.com.br/slides/go-clean-code.html</a></p>
-                <p>code: <a href="https://github.com/biancarosa/beautiful-go">github.com/biancarosa/beautiful-go</a></p>
+                <h2>Ou ainda...</h2>
+                <p>
+                    <a href="http://www.gorillatoolkit.org/">gorilla</a>
+                </p>
+            </section>
+            <section>
+                <ul>
+                    <ol>1. Você é uma pessoa livre.</ol>
+                    <ol>2. Você pode e deve embassar a sua decisão com bons argumentos.</ol>
+                    <ol>3. Muito do que está escrito na Internet são opiniões.</ol>
+                </ul>
+            </section>
+            <section>
+                <p>
+                    <a href="https://github.com/biancarosa/goasync">github.com/biancarosa/goasync</a>
+                </p>
+            </section>
+            <section>
+                <h1>Estrutura de pastas</h1>
+                <p>
+                    <small>* totalmente minha opinião</small>
+                </p>
+                <ul>
+                    <li>routes</li>
+                    <li>services</li>
+                    <li>models</li>
+                    <li>configuration</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Dependências</h1>
+                <p>
+                    <a href="https://github.com/golang/dep">github.com/golang/dep</a>
+                </p>
+            </section>
+            <section>
+                <h1>Dockerfile</h1>
+                <p>
+                    <pre class="highlight"><code>FROM golang:latest AS build
+
+WORKDIR $GOPATH/{your-repo}
+COPY . ./
+RUN go get github.com/tools/godep
+RUN godep get
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .
+
+FROM scratch
+COPY  --from=build /app ./
+ENTRYPOINT ["./app"]</code></pre>
+                </p>
+                <p>
+                    <a href="https://gist.github.com/biancarosa/c08c603fc9d55e2408a09aea4695e96b">gist</a>
+                    </a>
+                </p>
+            </section>
+            <section>
+                <p>twitter:
+                    <a href="http://twitter.com/__biancarosa">@__biancarosa</a>
+                </p>
+                <p>slides:
+                    <a href="http://biancarosa.com.br/slides/go-clean-code.html">biancarosa.com.br/slides/go-clean-code.html</a>
+                </p>
+                <p>code:
+                    <a href="https://github.com/biancarosa/beautiful-go">github.com/biancarosa/beautiful-go</a>
+                </p>
                 <p>tks :)</p>
             </section>
         </div>
