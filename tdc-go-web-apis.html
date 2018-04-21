@@ -47,9 +47,9 @@
                     #leitura:
                     <a href="https://medium.com/code-zen/why-i-don-t-use-go-web-frameworks-1087e1facfa4">Why I Don’t Use Go Web Frameworks</a>
                 </p>
-                <aside class="notes">
-                    Falar sobre a divisão de pacotes. Sobre a possibilidade de baixar apenas o necessário, mesmo da STD lib. *
-                </aside>
+                <p class="fragment">
+                    #disclaimer: eu gosto de utilizar gin / echo.
+                </p>
             </section>
             <section>
                 <pre class="highlight"><code>package main
@@ -126,8 +126,8 @@ func main() {
             </section>
             <section>
                 <ul>
-                    <ol class="fragment">1. Você é uma pessoa livre.</ol>
-                    <ol class="fragment">2. Você pode e deve embassar a sua decisão com bons argumentos.</ol>
+                    <ol>1. Você é uma pessoa livre.</ol>
+                    <ol class="fragment">2. Apenas baseie sua decisão em bons argumentos.</ol>
                     <ol class="fragment">3. Muito do que está escrito na Internet são opiniões.</ol>
                 </ul>
             </section>
@@ -228,9 +228,31 @@ func HealthCheck(c echo.Context) error {
                 </ul>
             </section>
             <section>
-                <h1>Testes</h1>
+                <h1>Testes de Unidade</h1>
+                <p>Se o código é dificil de testar, então provavelmente merece ser reescrito.</p>
+            </section>
+            <section>
+                <p>
+                    "SÓ QUERIA UM MONKEY PATCH IGUAL AO DO PYTHON"
+                </p>
+                <p>
+                    <small>Rosa, Bianca, 3am, sábado</small>
+                </p>
+                <p class="fragment"><a href="https://github.com/bouk/monkey">github.com/bouk/monkey</a></p>
+            </section>
+            <section>
+                <img src="images/uncle-ben.jpg"/>
+            </section>
+            <section>
+                <h1>Testes de Integração</h1>
                 <p>Separação de testes unitários e de integração através de build tags.</p>
                 <pre class="highlight"><code>// +build integration</code></pre>
+            </section>
+            <section>
+                <h1>Testes de Carga</h1>
+                <p>
+                    <a href="https://github.com/tsenart/vegeta">github.com/tsenart/vegeta</a>
+                </p>
             </section>
             <section>
                 <h1>Dependências</h1>
@@ -319,7 +341,7 @@ defer session.Close()</code></pre>
                 <h1>Quando usar Go</h1>
                 <ul>
                     <li class="fragment">Performance</li>
-                    <li class="fragment">Go routines</li>
+                    <li class="fragment">Go Routines</li>
                     <li class="fragment">Confiabilidade</li>
                 </ul>
             </section>
