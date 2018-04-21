@@ -26,6 +26,13 @@
             <section>
                 <ul>
                     <li>Sobre frameworks</li>
+                    <li>Escrita de código: padrões e clean code</li>
+                    <li>Estrutura de pastas</li>
+                    <li>Testes</li>
+                    <li>Gerenciando dependências</li>
+                    <li>Dockerfile</li>
+                    <li>Erros comuns</li>
+                    <li>Quando usar Go</li>
                 </ul>
             </section>
             <section>
@@ -33,7 +40,13 @@
             </section>
             <section>
                 <p>A standard library do Go é bastante poderosa.</p>
-                <p class="fragment">Portanto, não utilizar um framework é perfeitamente aceitável</p>
+                <p class="fragment">
+                    Portanto, não utilizar um framework é perfeitamente aceitável.
+                </p>
+                <p class="fragment">
+                    #leitura:
+                    <a href="https://medium.com/code-zen/why-i-don-t-use-go-web-frameworks-1087e1facfa4">Why I Don’t Use Go Web Frameworks</a>
+                </p>
                 <aside class="notes">
                     Falar sobre a divisão de pacotes. Sobre a possibilidade de baixar apenas o necessário, mesmo da STD lib. *
                 </aside>
@@ -113,15 +126,94 @@ func main() {
             </section>
             <section>
                 <ul>
-                    <ol>1. Você é uma pessoa livre.</ol>
-                    <ol>2. Você pode e deve embassar a sua decisão com bons argumentos.</ol>
-                    <ol>3. Muito do que está escrito na Internet são opiniões.</ol>
+                    <ol class="fragment">1. Você é uma pessoa livre.</ol>
+                    <ol class="fragment">2. Você pode e deve embassar a sua decisão com bons argumentos.</ol>
+                    <ol class="fragment">3. Muito do que está escrito na Internet são opiniões.</ol>
                 </ul>
             </section>
             <section>
                 <p>
                     <a href="https://github.com/biancarosa/goasync">github.com/biancarosa/goasync</a>
                 </p>
+            </section>
+            <section>
+                <pre class="highlight"><code>package main
+
+import (
+    "os"
+
+    "github.com/labstack/echo"
+    "github.com/labstack/echo/middleware"
+    log "github.com/sirupsen/logrus"
+
+    "github.com/biancarosa/goasync/routes"
+)
+
+func main() {
+    e := echo.New()
+
+    // Setup Logrus
+    log.SetOutput(os.Stdout)
+    log.SetLevel(log.DebugLevel)
+
+    // Middleware
+    e.Use(middleware.Logger())
+    e.Use(middleware.Recover())
+
+    // Routes
+    e.GET("/", routes.HealthCheck)
+    e.POST("/async", routes.ExecuteTask)
+    e.GET("/tasks/:uuid", routes.RetrieveTask)
+
+    e.Logger.Fatal(e.Start(":1323"))
+}</code></pre>
+            </section>
+            <section>
+                <pre class="highlight"><code>package routes
+
+import (
+    "net/http"
+    "os"
+
+    "github.com/labstack/echo"
+    log "github.com/sirupsen/logrus"
+)
+
+func init() {
+    // Setup Logrus
+    log.SetOutput(os.Stdout)
+    log.SetLevel(log.DebugLevel)
+}
+
+//HealthCheck is the route that prints a sucessful message when the application is fine.
+func HealthCheck(c echo.Context) error {
+    return c.String(http.StatusOK, "I seem to be perfectly fine.")
+}</code></pre>
+            </section>
+            <section>
+                <h1>Escreva bons códigos</h1>
+            </section>
+            <section>
+                <p>
+                    #leitura:
+                    <a href="https://teivah.io/blog/good-code-vs-bad-code-in-golang/">Good Code vs Bad Code in Golang</a>
+                </p>
+                <p>
+                    #slides:
+                    <a href="http://biancarosa.com.br/slides/go-clean-code.html">Boas Práticas & Clean Code com Golang</a>
+                </p>
+            </section>
+            <section>
+                <a href="https://golang.org/doc/effective_go.html">
+                    Effective Go
+                </a>
+                <br/>
+                <a href="https://github.com/golang/go/wiki">
+                    Go wiki
+                </a>
+            </section>
+            <section>
+                <h1>Use Interfaces</h1>
             </section>
             <section>
                 <h1>Estrutura de pastas</h1>
@@ -134,6 +226,11 @@ func main() {
                     <li>models</li>
                     <li>configuration</li>
                 </ul>
+            </section>
+            <section>
+                <h1>Testes</h1>
+                <p>Separação de testes unitários e de integração através de build tags.</p>
+                <pre class="highlight"><code>// +build integration</code></pre>
             </section>
             <section>
                 <h1>Dependências</h1>
@@ -162,11 +259,76 @@ ENTRYPOINT ["./app"]</code></pre>
                 </p>
             </section>
             <section>
+                <h1>Erros comuns</h1>
+            </section>
+            <section>
+                <p><pre class="highlight"><code>//Task is the structure that contains all relevant information for a task
+type Task struct {
+    Method string
+    URL    string
+    name   string
+    UUID   uuid.UUID
+}</code></pre></p>
+            </section>
+            <section>
+                <p><pre class="highlight"><code>{ 
+    "Method" : "GET",
+    "URL" : "http://google.com",
+    "UUID": "3b4f73b3-ee18-46b5-b9ed-b1e26573794f"
+}</code></pre></p>
+            </section>
+            <section>
+                <h2>Campos privados de uma struct não são serializados nem deserializados!</h2>
+            </section>
+            <section>
+                <p><pre class="highlight"><code>//Task is the structure that contains all relevant information for a task
+type Task struct {
+    Method string
+    URL    string
+    Name   string
+    UUID   uuid.UUID
+}</code></pre></p>
+            </section>
+            <section>
+                <p><pre class="highlight"><code>{ 
+    "Method" : "GET",
+    "Name": "Get Google",
+    "URL" : "http://google.com",
+    "UUID": "3b4f73b3-ee18-46b5-b9ed-b1e26573794f"
+}</code></pre></p>
+            </section>
+            <section>
+                <h1>Não tente reinventar a roda</h1>
+                <p>Ex: <a href="https://github.com/Sirupsen/logrus">logrus</a></p>
+            </section>
+            <section>
+                <h1>Nunca ignore erros!</h1>
+            </section>
+            <section>
+                    <pre class="highlight"><code>session, e_ := mgo.Dial("db:27017")
+defer session.Close()</code></pre>     
+            </section>
+            <section>
+                    <pre class="highlight"><code>session, err := mgo.Dial("db:27017")
+if err != nil {
+    return
+}
+defer session.Close()</code></pre>     
+            </section>
+            <section>
+                <h1>Quando usar Go</h1>
+                <ul>
+                    <li class="fragment">Performance</li>
+                    <li class="fragment">Go routines</li>
+                    <li class="fragment">Confiabilidade</li>
+                </ul>
+            </section>
+            <section>
                 <p>twitter:
                     <a href="http://twitter.com/__biancarosa">@__biancarosa</a>
                 </p>
                 <p>slides:
-                    <a href="http://biancarosa.com.br/slides/tdc-web-apis.html">biancarosa.com.br/slides/go-clean-code.html</a>
+                    <a href="http://biancarosa.com.br/slides/tdc-go-web-apis.html">biancarosa.com.br/slides/tdc-go-web-apis.html</a>
                 </p>
                 <p>tks :)</p>
             </section>
