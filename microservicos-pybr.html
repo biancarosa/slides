@@ -1,0 +1,163 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css">
+</head>
+
+<!-- Essa palestra tem como objetivo apresentar uma possível solução para 
+    diminuir os problemas que uma arquitetura orientada a microsserviços traz
+     para um ecossistema e o efeitos colaterais causados por essa escolha arquitetural.
+
+Vamos passar pelos motivos que fazem um time / empresa escolher trabalhar 
+com aplicações menores ao invés de grandes monolitos, o sofrimento inicial, 
+a dificuldade da definição de barreiras de cada serviço e 
+como evoluir para um ambiente mais saudável uma vez que 
+todas as aplicações são serviços menores, de responsabilidade de times diferentes. -->
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Quebrei minhas aplicações em microserviços</h1>
+                <h2>e agora?</h2>
+            </section>
+            <section>
+                <h1>Bianca Rosa</h1>
+                <h3>lead dev @ stone</h3>
+                <img class="plain" height="300" src="images/pic1.jpg"/>
+                <ul>
+                    <li class="fragment">Python</li>
+                    <li class="fragment">Go</li>
+                    <li class="fragment">DevOps / Lua / JS</li>
+                    <li class="fragment">PythOnRio / Pyladies / Gophers RJ / WWG</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Vamos fazer um software!</h1>
+            </section>
+            <section>
+                <!--- portal -->
+                <!--- 
+                    transações
+                    pagamentos
+                    taxas
+                -->
+            </section>
+            <section>
+                <h1>e assim nasce um monolito</h1>
+            </section>
+            <section>
+                <img class="plain" src="images/microservices/monolith-def.png"/>
+            </section>
+            <section>
+                <h1>Vamos usar microserviços!</h1>
+                <ul>
+                    <li class="fragment">Eu li um artigo que...</li>
+                    <li class="fragment">Eu tenho um amigo que....</li>
+                    <li class="fragment">No blog do Martin Fowler.....</li>
+                    <li class="fragment">Saiu um livro muito bom......</li>
+                </ul>
+            </section>
+            <section>
+                <h1>... e nunca mais vamos ter problemas!</h1>
+            </section>
+            <section>
+                <img class="plain" src="images/microservices/cheers.jpg"/>
+            </section>
+            <!-- https://medium.com/@tomsoderlund/micro-frontends-a-microservice-approach-to-front-end-web-development-f325ebdadc16 -->
+            <section>
+                <ul>
+                    <li>A linguagem correta pra resolver o problema correto.</li>
+                    <li>Aplicações menores e modulares.</li>
+                    <li>Deploys independentes.</li>
+                </ul>
+            </section>
+            <section>
+                <img class="plain" src="images/microservices/giphy.gif"/>
+            </section>
+            <section>
+                <p>Beleza, vamos para produção!!!!</p>
+            </section>
+            <section>
+                <!--- chaos --->
+            </section>
+            <section>
+                <h1>O que esquecemos de ler</h1>
+                <a href="https://www.martinfowler.com/bliki/MicroservicePrerequisites.html">Pré-requisitos</a>
+            </section>
+            <section>
+                <h1>Não suba microserviços se você não tem...</h1>
+                <ul>
+                    <li class="fragment">Provisionamento rápido</li>
+                    <li class="fragment">Monitoramento Básico</li>
+                    <li class="fragment">Deploy rápido</li>
+                    <li class="fragment">Cultura DevOps</li>
+                </ul>
+            </section>
+            <section>
+                <h1>>Alertas - Definição de Falha</h1>
+            </section>
+            <section>
+                <h1>Fronteiras</h1>
+                <a href="https://www.martinfowler.com/bliki/BoundedContext.html">BoundedContext</a>
+                <p class="fragment">Defina-as bem.</p>
+                <p class="fragment">Não expor outros times a como você organiza sua arquitetura de serviços é essencial. Exponha interfaces claras.</p>
+            </section>
+            <section>
+                <h1>Segurança</h1>
+                <a href="http://www.grahamlea.com/2015/07/microservices-security-questions/">Microservices Security Questions</a>
+                <p class="fragment">Seu serviço tem autenticação? Ou ele trabalha confiando nos outros serviços? Como você garante isso?</p>
+            </section>
+            <section>
+                <h1>Reusabilidade</h1>
+                <p class="fragment">É melhor deixar um time da mesma empresa usar meu microserviço ou ajudar a pessoa a subir o dela?</p>
+            </section>
+            <section>
+                <h1>Complexidade de Desenvolvimento</h1>
+                <ul>
+                    <li class="fragment"><a href="https://www.docker.com/">Docker</a></li>
+                    <li class="fragment"><a href="https://docs.docker.com/compose">Docker Compose</a></li>
+                    <li class="fragment"><a href="https://kubernetes.io/">Kubernetes</a></li>
+                    <li class="fragment"><a href="https://helm.sh">Helm</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Cuidado com ecossistemas complexos.</h1>
+            </section>
+            <section>
+                <h1>Boilerplate</h1>
+                <ul>
+                    <li>Exemplos</li>
+                    <li>Mínimo Viável</li>
+                    <li>Code style</li>
+                    <li>Logs</li>
+                    <li>Monitoramento</li>
+                </ul>
+            </section>
+            <section>
+                <p>twitter:
+                    <a href="http://twitter.com/__biancarosa">@__biancarosa</a>
+                </p>
+                <p>slides:
+                    <a href="http://biancarosa.com.br/slides">biancarosa.com.br/slides</a>
+                </p>
+                <p>tks :)</p>
+                <img class="plain" src="images/dancing.gif"/>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            dependencies: [
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.min.js' },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', callback: function () { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
+</body>
+
+</html>
