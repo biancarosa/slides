@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css">
+</head>
+
+<!-- Matando o medo do deploy
+
+Proposta em 14 de Setembro de 2018 às 00:29.
+
+Essa poderia facilmente ser uma talk sobre psicologia, mas na verdade não é.
+
+O medo de subir uma aplicação nada mais é do que a 
+insegurança causada pela falta de qualidade.
+
+Não necessariamente pela falta de qualidade de código, 
+mas pela falta de qualidade de infraestrutura, monitoramento, 
+alertas e processos automatizados e bem estruturados de rollback.
+
+Pretendo falar sobre como subir aplicações altamente escaláveis,
+ de alto impacto no cliente e como fazer deploy sem medo nelas a 
+ qualquer hora do dia, qualquer dia da semana.. -->
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Matando o medo do deploy</h1>
+            </section>
+            <section>
+                <p>Às vezes, parece que cada deploy é uma montanha russa...</p>
+            </section>
+            <section>
+                <p>Ou um grande trem fantasma.</p>
+            </section>
+            <section>
+                <p>Sempre dá algo errado. Se não deu, é porque não chegou no final</p>
+            </section>
+            <section>
+                <p>Durante a minha vida eu já...</p>
+                <ul>
+                    <li>1. Escrevi código direto na máquina de produção usando o VIM.</li>
+                    <li>2. Esqueci de tirar um nó do load balancer (300x vezes).</li>
+                    <li>3. Vi que tinha algo errado, tentei cancelar, entrei em desespero.</li>
+                    <li>4. Só descobri que um deploy deu errado uma semana depois.</li>
+                </ul>
+            </section>
+            <section>
+                <p>Amazon faz um deploy a cada 11.6 segundos</p>
+                <a href="https://www.youtube.com/watch?v=dxk8b9rSKOo">https://www.youtube.com/watch?v=dxk8b9rSKOo</a>
+            </section>
+            <section>
+                <h1>Bianca Rosa</h1>
+                <h3>lead dev @ stone</h3>
+                <img class="plain" height="300" src="images/pic1.jpg"/>
+                <ul>
+                    <li class="fragment">Python</li>
+                    <li class="fragment">Go</li>
+                    <li class="fragment">Lua</li>
+                    <li class="fragment">JS</li>
+                    <li class="fragment">PythOnRio / Gophers RJ </li>
+                    <li class="fragment">Pyladies / WWG</li>
+                </ul>
+            </section>
+            <section>
+                <p>twitter:
+                    <a href="http://twitter.com/__biancarosa">@__biancarosa</a>
+                </p>
+                <p>slides:
+                    <a href="http://biancarosa.com.br/slides">biancarosa.com.br/slides</a>
+                </p>
+                <p>tks :)</p>
+                <img class="plain" src="images/dancing.gif"/>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            dependencies: [
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.min.js' },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', callback: function () { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
+</body>
+
+</html>
