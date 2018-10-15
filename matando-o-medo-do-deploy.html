@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css">
@@ -30,38 +31,113 @@ Pretendo falar sobre como subir aplicações altamente escaláveis,
                 <h1>Matando o medo do deploy</h1>
             </section>
             <section>
-                <h1>Bianca Rosa</h1>
-                <h3>lead dev @ stone</h3>
-                <img class="plain" height="300" src="images/pic1.jpg"/>
-                <ul>
-                    <li class="fragment">Python</li>
-                    <li class="fragment">Go</li>
-                    <li class="fragment">Lua</li>
-                    <li class="fragment">JS</li>
-                    <li class="fragment">PythOnRio / Gophers RJ </li>
-                    <li class="fragment">Pyladies / WWG</li>
-                </ul>
+                <h3>Bianca Rosa</h3>
+                <p class="fragment">lider de tecnologia @ stone</p>
+                <div class="box col-sm-12">
+                    <div class="col-sm-6">
+                        <img class="plain" height="300" src="images/pic1.jpg"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul>
+                            <li class="fragment">Python</li>
+                            <li class="fragment">Go</li>
+                            <li class="fragment">Lua</li>
+                            <li class="fragment">JS</li>
+                            <li class="fragment">PythOnRio / Gophers RJ </li>
+                            <li class="fragment">Pyladies / WWG</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h1>Contexto</h1>
+                <p class="fragment">O processo de implantação de um software é a parte que mais impacta no cliente.
+                    É o momento em que efetivamente entregamos valor pro nosso cliente.</p>
+            </section>
+            <section>
+                <p><strong>deploy</strong>, do verbo deployar, aportuguesado de deployment.</p>
+                <p class="fragment">comumente usado pelo carioca nas frases: "deploya ae!", "vamo deployá!", "partiu deploy?"</p>
+                <p class="fragment">também chamado de processo de <strong>implantação</strong>, do verbo implantar.</p>
             </section>
             <section>
                 <p>Às vezes, parece que cada deploy é uma montanha russa...</p>
+                <img class="plain fragment" src="images/rollercoaster.gif"/>
             </section>
             <section>
                 <p>Ou um grande trem fantasma.</p>
+                <img class="plain fragment" src="images/trem.jpeg"/>
             </section>
             <section>
-                <p>Sempre dá algo errado. Se não deu, é porque não chegou no final</p>
+                <p>"Sempre dá algo errado. Se não deu, é porque não chegou no final."</p>
             </section>
             <section>
                 <p>Durante a minha vida eu já...</p>
-                <ul>
-                    <li>1. Escrevi código direto na máquina de produção usando o VIM.</li>
-                    <li>2. Esqueci de tirar um nó do load balancer (300x vezes).</li>
-                    <li>3. Vi que tinha algo errado, tentei cancelar, entrei em desespero.</li>
-                    <li>4. Só descobri que um deploy deu errado uma semana depois.</li>
-                </ul>
+                <ol>
+                    <li class="fragment">Esqueci de tirar um nó do load balancer (300x vezes).</li>
+                    <li class="fragment">Vi que tinha algo errado, tentei cancelar, entrei em desespero.</li>
+                    <li class="fragment">Só descobri que um deploy deu errado uma semana depois.</li>
+                    <li class="fragment">Esqueci de atualizar um(1!!) arquivo JavaScript do pacote de deploy.</li>
+                </ol>
             </section>
             <section>
-                <p>Amazon faz um deploy a cada 11.6 segundos</p>
+                <p>Todas essas situações, que ocorreram ao longo dos últimos 7 anos (e ainda ocorrem), possuem um fator comum</p>
+                <p class="fragment">Eu.</p>
+            </section>
+            <section>
+                <p>VOU PARAR DE FAZER DEPLOY!</p>
+            </section>
+            <section>
+                <p>Calma.</p>
+                <img class="fragment plain" src="images/clean-code/meditate.jpg"/>
+            </section>
+            <section>
+                <p>Na verdade, o fator comum de todos esses deploys foi que havia um processo manual.</p>
+            </section>
+            <section>
+                <p>Todo mundo no seu time pode errar um processo manual: estagiários, júniores, plenos, sêniores, C-levels.</p>
+                <p class="fragment">Não aceite a culpa da falha de um processo manual.</p>
+                <p class="fragment">Melhore o processo.</p>
+            </section>
+            <section>
+                <h1>Automatize tudo que for possível.</h1>
+                <p class="fragment">Uma casa se constrói tijolo a tijolo. Pode ir devagar. Não precisa mudar o mundo do dia pra noite.</p>
+            </section>
+            <section>
+                <h1>Processo de Build</h1>
+            </section>
+            <section>
+                <h1>Como você gera pacotes de deploy?</h1>
+            </section>
+            <section>
+                <h1>Aonde você gera pacotes de deploy?</h1>
+            </section>
+            <section>
+                <p>Pessoas que desenvolvem software podem (e devem) automatizar várias coisas, independente de estarem num lugar com ou sem cultura DevOps.</p>
+            </section>
+            <section>
+                <h1>Processo de Implantação</h1>
+            </section>
+            <section>
+                <h1>Como você executa seu deploy?</h1>
+            </section>
+            <section>
+                <h1>Como você verifica se seu deploy funcionou?</h1>
+            </section>
+            <section>
+                <h1>Como você desfaz o seu deploy se der problema (rollback)?</h1>
+            </section>
+            <section>
+                <p>Aqui, vale o disclaimer: nem tudo pode ser automatizado sem se unir com o time de infraestrutura. Vale brigar pela melhoria no processo do local que você trabalha.</p>
+                <p class="fragment">Mas se você trabalha sozinho ou numa startup, não tem desculpa pra não fazer bonito!</p>
+            </section>
+            <section>
+                <h1>Mas Bia, isso é responsabilidade de desenvolvedores?</h1>
+            </section>
+            <section>
+                <h1>Nossa responsabilidade, como time de tecnologia, é entregar o melhor software pro cliente.</h1>
+            </section>
+            <section>
+                <p>Em 2011 Amazon faz um deploy a cada 11.6 segundos em produção</p>
                 <a href="https://www.youtube.com/watch?v=dxk8b9rSKOo">https://www.youtube.com/watch?v=dxk8b9rSKOo</a>
             </section>
             <section>
