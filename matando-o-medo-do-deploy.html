@@ -115,6 +115,14 @@ Pretendo falar sobre como subir aplicações altamente escaláveis,
                 <p>Pessoas que desenvolvem software podem (e devem) automatizar várias coisas, independente de estarem num lugar com ou sem cultura DevOps.</p>
             </section>
             <section>
+                <h1>Seu processo de build precisa ser...</h1>
+                <ul>
+                    <li class="fragment">Reproduzível.</li>
+                    <li class="fragment">Automatizado.</li>
+                    <li class="fragment">Independente de ambientes externos. (tip: containers)</li>
+                </ul>
+            </section>
+            <section>
                 <h1>Processo de Implantação</h1>
             </section>
             <section>
@@ -131,14 +139,58 @@ Pretendo falar sobre como subir aplicações altamente escaláveis,
                 <p class="fragment">Mas se você trabalha sozinho ou numa startup, não tem desculpa pra não fazer bonito!</p>
             </section>
             <section>
-                <h1>Mas Bia, isso é responsabilidade de desenvolvedores?</h1>
+                <h1>Seu processo de deploy precisa ser...</h1>
+                <ul>
+                    <li class="fragment">Reproduzível.</li>
+                    <li class="fragment">Automatizado.</li>
+                </ul>
             </section>
             <section>
-                <h1>Nossa responsabilidade, como time de tecnologia, é entregar o melhor software pro cliente.</h1>
+                <h1>Seu processo de rollback precisa ser...</h1>
+                <ul>
+                    <li class="fragment">Rápido.</li>
+                    <li class="fragment">Automatizado.</li>
+                    <li class="fragment">Preferencialmente, quase nunca usado.</li>
+                </ul>
             </section>
             <section>
                 <p>Em 2011 Amazon faz um deploy a cada 11.6 segundos em produção</p>
                 <a href="https://www.youtube.com/watch?v=dxk8b9rSKOo">https://www.youtube.com/watch?v=dxk8b9rSKOo</a>
+            </section>
+            <section>
+                <h1>Estratégias de Deploy</h1>
+                <p>Escolha uma e seja feliz.</p>
+                <p><a href="https://thenewstack.io/deployment-strategies/">https://thenewstack.io/deployment-strategies/</a></p>
+            </section>
+            <section>
+                <h1>Containers</h1>
+                <ul>
+                    <li class="fragment"><a href="https://www.docker.com/">Docker</a></li>
+                    <li class="fragment"><a href="https://docs.docker.com/compose">Docker Compose</a></li>
+                    <li class="fragment"><a href="https://kubernetes.io/">Kubernetes</a></li>
+                    <li class="fragment"><a href="https://helm.sh">Helm</a></li>
+                    <li class="fragment"><a href="https://docs.docker.com/engine/swarm/">Swarm</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Ferramentas</h1>
+                <ul>
+                    <li class="fragment"><a href="https://travis-ci.org">TravisCI</a></li>
+                    <li class="fragment"><a href="https://circleci.com">CircleCI</a></li>
+                    <li class="fragment"><a href="https://www.gocd.org/">GoCD</a></li>
+                    <li class="fragment"><a href="https://azure.microsoft.com/en-us/services/devops/">Azure DevOps</a></li>
+                    <li class="fragment"><a href="https://jenkins.io/">Jenkins</a></li>
+                </ul>
+            </section>
+            <section>
+                <h1>Mas Bia, isso é responsabilidade de desenvolvedores?</h1>
+            </section>
+            <section>
+                <p>É o seu sistema. Peça ajuda a especialistas de infraestrutura, mas entregue seu produto até a ponta, com a melhor experiência possível para seus clientes.</p>
+            </section>
+            <section>
+                <p>DevOps é cultura, processo ou cargo?</p>
+                <a href="https://pt.slideshare.net/cfelippe/devops-cultura-processo-ou-cargo">https://pt.slideshare.net/cfelippe/devops-cultura-processo-ou-cargo</a>
             </section>
             <section>
                 <p>twitter:
@@ -148,7 +200,6 @@ Pretendo falar sobre como subir aplicações altamente escaláveis,
                     <a href="http://biancarosa.com.br/slides">biancarosa.com.br/slides</a>
                 </p>
                 <p>tks :)</p>
-                <img class="plain" src="images/dancing.gif"/>
             </section>
         </div>
     </div>
