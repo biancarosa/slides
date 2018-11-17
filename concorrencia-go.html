@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Programando de forma concorrente em Go</h1>
+            </section>
+            <section>
+                <h3>Bianca Rosa</h3>
+                <p>lider de desenvolvimento @ stone</p>
+                <div class="box col-sm-12">
+                    <div class="col-sm-6">
+                        <img class="plain" height="300" src="images/pic1.jpg"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul>
+                            <li>Python</li>
+                            <li>Go</li>
+                            <li>DevOps</li>
+                            <li>PythOnRio / Pyladies</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h1>Concorrência vs Paralelismo</h1>
+            </section>
+            <section>
+                <p>“Concorrência é sobre <strong>lidar</strong> com várias coisas ao mesmo tempo.
+                    Paralelismo é sobre <strong>fazer</strong> várias coisas ao mesmo tempo.” — Rob Pike</p>
+            </section>
+            <section>
+                <img class="plain" src="images/concorrencia/concorrencia-vs-paralelismo.png">
+            </section>
+            <section>
+                <p>Um SO se utiliza de vários núcleos de uma CPU para fazer coisas em paralelo.</p>
+            </section>
+            <section>
+                <p>Programas concorrentes parecem estar rodando várias coisas ao mesmo tempo quando na realidade, não estão.</p>
+                <p class="fragment">As coisas só mudam de estado muito rápido a olho nu.</p>
+            </section>
+            <section>
+                <p>Aqui, vamos focar em concorrência.</p>
+            </section>
+            <section>
+                <p>Concorrência é sobre aproveitar o tempo que seu programa está fazendo I/O pra ir fazer outras coisas.</p>
+            </section>
+            <section>
+                <p>E por muito tempo foi difícil implementar, até que...</p>
+            </section>
+            <section>
+                <a href="https://github.com/biancarosa/go-concurrency/blob/master/1-just-sleep.go">https://github.com/biancarosa/go-concurrency/blob/master/1-just-sleep.go</a>
+                <a href="https://github.com/biancarosa/go-concurrency/blob/master/2-sleep-in-a-loop.go">https://github.com/biancarosa/go-concurrency/blob/master/2-sleep-in-a-loop.go</a>
+                <a href="https://github.com/biancarosa/go-concurrency/blob/master/3-sleep-with-go-routines.go">https://github.com/biancarosa/go-concurrency/blob/master/3-sleep-with-go-routines.go</a>
+            </section>
+            <section>
+                <h2>quando usar</h2>
+                <ul>
+                    <li>Em códigos que fazem muito I/O (requests, uso de dispostivos externos, etc)</li>
+                    <li>Para executar tarefas em background</li>
+                </ul>
+            </section>
+            <section>
+                <h2>quando não usar</h2>
+                <a href="https://github.com/biancarosa/go-concurrency/blob/master/4-not-useful.go">https://github.com/biancarosa/go-concurrency/blob/master/4-not-useful.go</a>
+            </section>
+            <section>
+                <p>muito fácil! vou usar em tudo e meus programas vão voar!</p>
+            </section>
+            <section>
+                <p>segura a onda</p>
+            </section>
+            <section>
+                <p><a href="https://hackaday.com/2015/10/26/killed-by-a-machine-the-therac-25/">Therac-25.</a></p>
+            </section>
+            <section>
+                <h1>condições de corrida</h1>
+            </section>
+            <section>
+                <a href="https://github.com/biancarosa/go-concurrency/blob/master/5-race-on-a-loop.go">https://github.com/biancarosa/go-concurrency/blob/master/5-race-on-a-loop.go</a>
+                <a href="https://github.com/biancarosa/go-concurrency/blob/master/2-sleep-in-a-loop.go">https://github.com/biancarosa/go-concurrency/blob/master/6-accidentaly-share.go</a>
+            </section>
+            <section>
+                <h1>detectando condições de corrida</h1>
+                <p>só usar -race</p>
+            </section>
+            <section>
+                <p>twitter:
+                    <a href="http://twitter.com/__biancarosa">@__biancarosa</a>
+                </p>
+                <p>slides:
+                    <a href="http://biancarosa.com.br/slides">biancarosa.com.br/slides</a>
+                </p>
+                <p>tks :)</p>
+            </section>
+            <section>
+                <a href="https://talks.golang.org/2012/waza.slide#1">Concurrency is Not Parallelism - Rob Pike</a>
+                <a href="https://golang.org/doc/articles/race_detector.html">Data Race Detector</a>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            dependencies: [
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.min.js' },
+                { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/highlight/highlight.js', callback: function () { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
+</body>
+
+</html>
