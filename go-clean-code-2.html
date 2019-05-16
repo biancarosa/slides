@@ -18,9 +18,9 @@
         <h1>Bianca Rosa</h1>
         <h3>tech lead @ stone</h3>
         <ul>
-          <li class="fragment">Python</li>
-          <li class="fragment">Go</li>
-          <li class="fragment">JS</li>
+          <li class="fragment">Python & Go</li>
+          <li class="fragment">Docker & Kubernetes & Cloud</li>
+          <li class="fragment">Qualidade & Automação</li>
           <li class="fragment">
             PythOnRio / Pyladies / WWG RJ
           </li>
@@ -37,29 +37,37 @@
         </a>
       </section>
       <section>
+        <ol>
+          <li class="fragment">Nomenclaturas e convenções</li>
+          <li class="fragment">Conceitos de Clean Code</li>
+          <li class="fragment">O que não fazer</li>
+          <li class="fragment">Referências</li>
+        </ol>
+      </section>
+      <section>
+        <h1>Nomenclaturas e convenções</h1>
+      </section>
+      <section>
         <p>
           There are only two hard things in Computer Science: cache
           invalidation and naming things.
         </p>
         <p>Phil Karlton</p>
       </section>
-      <section>
-        <h2>mixedCaps</h2>
-        <p>
-          <a href="https://golang.org/doc/effective_go.html#mixed-caps">mixedCaps</a>
-        </p>
       </section>
       <section>
         <h2>Nomes de variáveis</h2>
         <ul>
+          <li class="fragment">Lower case, se necessário utilize <a href="https://golang.org/doc/effective_go.html#mixed-caps">mixedCaps</a>.</li>
+          <li class="fragment">Regra básica: crescem e se tornam mais descritivos de acordo com o tamanho do escopo</li>
           <li class="fragment">Pequenos e abreviados quando usados em blocos de escopo menores(1-2 letras)</li>
           <li class="fragment">Podem ser mais descritivas em blocos de escopo maiores</li>
         </ul>
       </section>
       <section>
         <h2>Nomes de variáveis</h2>
-        <li class="fragment">Prefira <pre class="highlight">c</pre> a <pre class="highlight">lineCount</pre> </li>
-        <li class="fragment">Prefira <pre class="highlight">i</pre> a <pre class="highlight">slideIndex</pre> </li>
+        <li class="fragment">Prefira c a lineCount</li>
+        <li class="fragment">Prefira i a slideIndex</li>
       </section>
       <section>
         <h2>Nomes de variáveis</h2>
@@ -118,6 +126,260 @@ var bufreader *bufio.Reader
       <section>
         <h2>Nomes de interfaces</h2>
         <p class="fragment">Tente utilizar sufixos -er (exemplo: Reader, Writter, Formatter, Notifier)</p>
+      </section>
+      <section>
+        <h1>Comentários</h1>
+        <p class="fragment"><a href="https://golang.org/doc/effective_go.html#commentary">Effective Go - Comentários</a></p>
+        <p class="fragment"><a href="https://github.com/golang/go/wiki/CodeReviewComments#package-comments">Code Review
+            Comments - Package Comments</a></p>
+        <p class="fragment">Evite escrever comentários para explicar lógica e código. Ao invés disso, invista em nomes
+          de funções que façam sentido.</p>
+        <p class="fragment">A grande utilidade de comentários é a geração de doc automáticas através do go doc.
+        </p>
+      </section>
+      <section>
+        <h1>Comentários</h1>
+        <img src="images/echo-code.png" />
+      </section>
+      <section>
+        <h1>Comentários</h1>
+        <img src="images/echo-doc.png" />
+      </section>
+      <section>
+        <h1>Use as ferramentas da linguagem!</h1>
+      </section>
+      <section>
+        <h1>go fmt</h1>
+        <p class="fragment">Não tem nenhum motivo pra não usar a
+          <a href="https://golang.org/doc/effective_go.html#formatting">
+            formatação padrão
+          </a> do Go.</p>
+      </section>
+      <section>
+        <h1>Conceitos de Clean Code</h1>
+      </section>
+      <section>
+        <h1>Regra do Escoteiro</h1>
+        <h2>The Boy Scout Rule</h2>
+      </section>
+      <section>
+        Ao sair da área onde você estava acampado, deixe-a mais limpa do que quando a encontrou.
+      </section>
+      <section>
+        <pre class="highlight"><code>func returnUsername(userId int) string {
+if userId == 1 {
+  return "Maria"
+} else if userId == 2 {
+  return "João"
+} else if userId == 3 {
+  return "Joaquim"
+} else if userId == 4 {
+  return "Ana Clara"
+}
+return "Não identificado"
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>var users map[int]string
+func init() {
+users = map[int]string{
+  1: "Maria",
+  2: "João",
+  3: "Joaquim",
+  4: "Ana Clara",
+}
+}
+func name(userID int) string {
+name, ok := users[userID]
+if ok == false {
+  return "Não identificado"
+}
+return name
+}</code></pre>
+      </section>
+      <section>
+        <h1>Princípio da Responsabilidade Única (SRP)</h1>
+      </section>
+      <section>
+        <pre class="highlight"><code>type fox struct{}
+                      
+func (f *fox) Say() {
+fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>type fox struct{}
+                      
+func (f *fox) Say() {
+fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+}
+
+func (f *fox) Meow() {
+fmt.Println("Meow")
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>type fox struct{}
+          
+func (f *fox) Say() {
+fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+}
+
+type cat struct{}
+
+func (c *cat) Meow() {
+fmt.Println("Meow")
+}</code></pre>
+      </section>
+      <section>
+        <h1>DRY</h1>
+        <p class="fragment">Don't Repeat Yourself</p>
+        <p class="fragment">A menos que você esteja criando complexidade desnecessária</p>
+      </section>
+      <section>
+        <h1>SEMPRE cheque seus erros</h1>
+      </section>
+      <section>
+        <pre class="highlight"><code>func converte(s string) int {
+n, _ := strconv.Atoi(s)
+return n
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>func converte(s string) (int, error) {
+n, err := strconv.Atoi(s)
+return n, err
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>func converte(s string) (int) {
+n, err := strconv.Atoi(s)
+if err != nil {
+  n = 0
+  //log error
+} 
+return n
+}</code></pre>
+      </section>
+      <section>
+        <h1>O que não fazer</h1>
+      </section>
+      <section>
+        <img src="images/clean-code/behold.jpg" />
+      </section>
+      <section>
+        <img src="images/clean-code/qq.jpg" />
+      </section>
+      <section>
+        <pre class="highlight"><code>func hasPermission(roles []Role, statusFlows []StatusFlow, currentStatus, newStatus string) bool {
+for _, role := range roles {
+  for _, statusFlow := range statusFlows {
+      if strings.ToLower(role.Name) == strings.ToLower(statusFlow.Role) {
+          if len(statusFlow.Flows) == 0 {
+              return true
+          }
+          for _, permission := range statusFlow.Flows {
+              if permission.From == currentStatus {
+                  for _, newStatuses := range permission.To {
+                      if newStatuses == newStatus {
+                          return true
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+return false
+}
+</code></pre>
+      </section>
+      <section>
+        <h1>Mas como resolver?</h1>
+        <img class="fragment" src="images/clean-code/meditate.jpg" />
+      </section>
+      <section>
+        <pre class="highlight"><code>func (u *User) HasPermission(fromStatus, toStatus string) bool {
+for _, role := range u.roles {
+  return role.hasPermission(fromStatus, toStatus)
+}
+return false
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>func (r *Role) hasPermission(fromStatus, toStatus string) bool {
+flows := Flows()
+flow := matchedFlow(flows, r.Name)
+if flow != nil {
+  return true
+}
+return flow.IsTransitionAllowed(fromStatus, toStatus)
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>func matchedFlow(statusFlows []StatusFlow, name string) *StatusFlow {
+for _, statusFlow := range statusFlows {
+  if strings.EqualFold(name, statusFlow.Role) {
+      return &statusFlow
+  }
+}
+return nil
+}
+</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>func (f *StatusFlow) IsTransitionAllowed(from, to string) bool {
+if len(f.Flows) == 0 {
+  return true
+}
+permission := f.PermissionForTransition(from)
+for _, new := range permission.To {
+  if new == to {
+      return true
+  }
+}
+return false          
+}</code></pre>
+      </section>
+      <section>
+        <pre class="highlight"><code>func (f *StatusFlow) PermissionForTransition(name string) *Permission {
+for _, permission := range f.Flows {
+  if permission.From == name {
+      return &permission
+  }
+}
+return nil
+}</code></pre>
+      </section>
+      <section>
+        <h1>Referências</h1>
+        <ul>
+          <li>
+            <a href="https://golang.org/ref/spec">
+              Language Spec
+            </a>
+          </li>
+          <li>
+            <a href="https://golang.org/doc/effective_go.html">
+              Effective Go
+            </a>
+          </li>
+          <li>
+            <a href="https://tour.golang.org/welcome/1">
+              Tour Of Go
+            </a>
+          </li>
+          <li>
+            <a href="https://golang.org/doc/code.html">
+              How To Write Go Code
+            </a>
+          </li>
+          <li>
+            <a href="https://www.skoob.com.br/clean-code-a-handbook-of-agile-software-craftsmanship-53336ed58714.html">
+              Clean Code: A Handbook of Agile Software Craftsmanship
+            </a>
+          </li>
+        </ul>
       </section>
       <section>
         <p>
