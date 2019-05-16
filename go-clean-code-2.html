@@ -167,34 +167,34 @@ var bufreader *bufio.Reader
       </section>
       <section>
         <pre class="highlight"><code>func returnUsername(userId int) string {
-if userId == 1 {
-  return "Maria"
-} else if userId == 2 {
-  return "João"
-} else if userId == 3 {
-  return "Joaquim"
-} else if userId == 4 {
-  return "Ana Clara"
-}
-return "Não identificado"
+  if userId == 1 {
+    return "Maria"
+  } else if userId == 2 {
+    return "João"
+  } else if userId == 3 {
+    return "Joaquim"
+  } else if userId == 4 {
+    return "Ana Clara"
+  }
+  return "Não identificado"
 }</code></pre>
       </section>
       <section>
         <pre class="highlight"><code>var users map[int]string
 func init() {
-users = map[int]string{
-  1: "Maria",
-  2: "João",
-  3: "Joaquim",
-  4: "Ana Clara",
-}
+  users = map[int]string{
+    1: "Maria",
+    2: "João",
+    3: "Joaquim",
+    4: "Ana Clara",
+  }
 }
 func name(userID int) string {
-name, ok := users[userID]
-if ok == false {
-  return "Não identificado"
-}
-return name
+  name, ok := users[userID]
+  if ok == false {
+    return "Não identificado"
+  }
+  return name
 }</code></pre>
       </section>
       <section>
@@ -204,31 +204,31 @@ return name
         <pre class="highlight"><code>type fox struct{}
                       
 func (f *fox) Say() {
-fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+  fmt.Println("Ring-ding-ding-ding-dingeringeding!")
 }</code></pre>
       </section>
       <section>
         <pre class="highlight"><code>type fox struct{}
                       
 func (f *fox) Say() {
-fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+  fmt.Println("Ring-ding-ding-ding-dingeringeding!")
 }
 
 func (f *fox) Meow() {
-fmt.Println("Meow")
+  fmt.Println("Meow-meow-meow-meow-meow-meow")
 }</code></pre>
       </section>
       <section>
         <pre class="highlight"><code>type fox struct{}
           
 func (f *fox) Say() {
-fmt.Println("Ring-ding-ding-ding-dingeringeding!")
+  fmt.Println("Ring-ding-ding-ding-dingeringeding!")
 }
 
 type cat struct{}
 
 func (c *cat) Meow() {
-fmt.Println("Meow")
+  fmt.Println("Meow-meow-meow-meow-meow-meow")
 }</code></pre>
       </section>
       <section>
@@ -241,24 +241,24 @@ fmt.Println("Meow")
       </section>
       <section>
         <pre class="highlight"><code>func converte(s string) int {
-n, _ := strconv.Atoi(s)
-return n
+  n, _ := strconv.Atoi(s)
+  return n
 }</code></pre>
       </section>
       <section>
         <pre class="highlight"><code>func converte(s string) (int, error) {
-n, err := strconv.Atoi(s)
-return n, err
+  n, err := strconv.Atoi(s)
+  return n, err
 }</code></pre>
       </section>
       <section>
         <pre class="highlight"><code>func converte(s string) (int) {
-n, err := strconv.Atoi(s)
-if err != nil {
-  n = 0
-  //log error
-} 
-return n
+  n, err := strconv.Atoi(s)
+  if err != nil {
+    n = 0
+    //log error
+  } 
+  return n
 }</code></pre>
       </section>
       <section>
@@ -272,25 +272,25 @@ return n
       </section>
       <section>
         <pre class="highlight"><code>func hasPermission(roles []Role, statusFlows []StatusFlow, currentStatus, newStatus string) bool {
-for _, role := range roles {
-  for _, statusFlow := range statusFlows {
-      if strings.ToLower(role.Name) == strings.ToLower(statusFlow.Role) {
-          if len(statusFlow.Flows) == 0 {
-              return true
-          }
-          for _, permission := range statusFlow.Flows {
-              if permission.From == currentStatus {
-                  for _, newStatuses := range permission.To {
-                      if newStatuses == newStatus {
-                          return true
-                      }
-                  }
-              }
-          }
-      }
+  for _, role := range roles {
+    for _, statusFlow := range statusFlows {
+        if strings.ToLower(role.Name) == strings.ToLower(statusFlow.Role) {
+            if len(statusFlow.Flows) == 0 {
+                return true
+            }
+            for _, permission := range statusFlow.Flows {
+                if permission.From == currentStatus {
+                    for _, newStatuses := range permission.To {
+                        if newStatuses == newStatus {
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+    }
   }
-}
-return false
+  return false
 }
 </code></pre>
       </section>
@@ -308,12 +308,12 @@ return false
       </section>
       <section>
         <pre class="highlight"><code>func (r *Role) hasPermission(fromStatus, toStatus string) bool {
-flows := Flows()
-flow := matchedFlow(flows, r.Name)
-if flow != nil {
-  return true
-}
-return flow.IsTransitionAllowed(fromStatus, toStatus)
+  flows := Flows()
+  flow := matchedFlow(flows, r.Name)
+  if flow != nil {
+    return true
+  }
+  return flow.IsTransitionAllowed(fromStatus, toStatus)
 }</code></pre>
       </section>
       <section>
@@ -329,26 +329,26 @@ return nil
       </section>
       <section>
         <pre class="highlight"><code>func (f *StatusFlow) IsTransitionAllowed(from, to string) bool {
-if len(f.Flows) == 0 {
-  return true
-}
-permission := f.PermissionForTransition(from)
-for _, new := range permission.To {
-  if new == to {
-      return true
+  if len(f.Flows) == 0 {
+    return true
   }
-}
-return false          
+  permission := f.PermissionForTransition(from)
+  for _, new := range permission.To {
+    if new == to {
+        return true
+    }
+  }
+  return false          
 }</code></pre>
       </section>
       <section>
         <pre class="highlight"><code>func (f *StatusFlow) PermissionForTransition(name string) *Permission {
-for _, permission := range f.Flows {
-  if permission.From == name {
-      return &permission
+  for _, permission := range f.Flows {
+    if permission.From == name {
+        return &permission
+    }
   }
-}
-return nil
+  return nil
 }</code></pre>
       </section>
       <section>
