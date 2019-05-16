@@ -300,10 +300,10 @@ func (c *cat) Meow() {
       </section>
       <section>
         <pre class="highlight"><code>func (u *User) HasPermission(fromStatus, toStatus string) bool {
-for _, role := range u.roles {
-  return role.hasPermission(fromStatus, toStatus)
-}
-return false
+  for _, role := range u.roles {
+    return role.hasPermission(fromStatus, toStatus)
+  }
+  return false
 }</code></pre>
       </section>
       <section>
@@ -318,12 +318,12 @@ return false
       </section>
       <section>
         <pre class="highlight"><code>func matchedFlow(statusFlows []StatusFlow, name string) *StatusFlow {
-for _, statusFlow := range statusFlows {
-  if strings.EqualFold(name, statusFlow.Role) {
-      return &statusFlow
+  for _, statusFlow := range statusFlows {
+    if strings.EqualFold(name, statusFlow.Role) {
+        return &statusFlow
+    }
   }
-}
-return nil
+  return nil
 }
 </code></pre>
       </section>
