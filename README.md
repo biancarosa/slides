@@ -1,6 +1,6 @@
 # Bia's Talks
 
-- [Boas Práticas & Clean Code com Go](http://biancarosa.com.br/slides/go-clean-code-2.html) - GDG DevFest, Rio de Janeiro - RJ, 16/05/2019
+- [Boas Práticas & Clean Code com Go](http://biancarosa.com.br/slides/go-clean-code-2.html) - GopheRio, Rio de Janeiro - RJ, 16/05/2019
 - [Programando de forma concorrente em Go](http://biancarosa.com.br/slides/concorrencia-go.html) - GDG DevFest, Rio de Janeiro - RJ, 17/11/2018
 - [Quebrei minhas aplicações em microserviços, e agora?](http://biancarosa.com.br/slides/microservicos-pybr.html) - Python Brasil, Natal, RN, 19/10/2018
 - [Matando o medo do deploy](http://biancarosa.com.br/slides/matando-o-medo-do-deploy.html) - Pyladies BR Conf, Natal, RN, 16/10/2018
