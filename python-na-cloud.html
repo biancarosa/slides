@@ -29,26 +29,67 @@
           <ul>
             <li class="fragment">Python & Go</li>
             <li class="fragment">Docker & Kubernetes & Cloud</li>
-            <li class="fragment">Qualidade & Automação</li>
+            <li class="fragment">Qualidade & Resiliência</li>
             <li class="fragment">
               PythOnRio / Pyladies / WWG RJ
             </li>
           </ul>
         </section>
         <section>
+          <!-- TODO: Someone else's computer. -->
+        </section>
+        <section>
+          <!-- #sóquenão -->
+        </section>
+        <section>
           <h1>Agenda</h1>
           <ul>
-            <li>Construindo uma API simples em FlasK</li>
-            <li>Serverless - subindo na cloud essa API simples</li>
-            <li>
-              Dockerfile - usando containers pra facilitar o desenvolvimento /
-              deploy
-            </li>
-            <li>
-              Kubernetes - subindo essa mesma aplicação num Kubernetes cluster
-            </li>
-            <li>Serverless container</li>
+            <li class="fragment">Construindo uma API simples em Flask</li>
+            <li class="fragment">Serverless</li>
+            <li class="fragment">Containers</li>
+            <li class="fragment">Kubernetes</li>
+            <li class="fragment">Containers serverless</li>
           </ul>
+        </section>
+        <section>
+          <h1>Construindo uma API simples em Flask</h1>
+        </section>
+        <section><pre class="highlight"><code>from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return jsonify({
+      "message": "Hello, World!"
+    })
+</code></pre>
+        </section>
+        <section>
+          <p>Legal! Quero colocar esse código em produção!</p>
+        </section>
+        <section>
+          <h1>Serverless</h1>
+        </section>
+        <section>
+          <!-- Worst. Name. Ever. -->
+        </section>
+        <section>
+          <h1>Containers</h1>
+        </section>
+        <section>
+          <!-- Dockerfile: o que é, como funciona etc  -->
+        </section>
+        <section>
+          <h1>Kubernetes</h1>
+        </section>
+        <section>
+          <!-- Kubernetes: o que é, como funciona etc  -->
+        </section>
+        <section>
+          <h1>Serverless Containers</h1>
+        </section>
+        <section>
+          <!-- Serverless Containers  -->
         </section>
         <section>
           <p>
@@ -56,9 +97,9 @@
           </p>
           <p>
             slides:
-            <a href="http://biancarosa.com.br/slides/python-na-cloud.html"
-              >biancarosa.com.br/slides/python-na-cloud.html</a
-            >
+            <a href="http://biancarosa.com.br/slides/python-na-cloud.html">
+              biancarosa.com.br/slides/python-na-cloud.html
+            </a>
           </p>
           <p>tks :)</p>
         </section>
