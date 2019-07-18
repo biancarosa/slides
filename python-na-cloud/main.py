@@ -1,10 +1,6 @@
-from flask import Flask, jsonify
+from flask import jsonify
 
-app = Flask(__name__)
-
-@app.route('/')
-def healthcheck():
+def hello_world():
     return jsonify({
         "message": "Hello, World!"
     })
-
