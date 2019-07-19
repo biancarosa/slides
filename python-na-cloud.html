@@ -47,7 +47,9 @@
           <h1>Cloud</h1>
           <p class="fragment">There is no cloud. It's just someone else's computer.</p>
           <p class="fragment">#sóquenão</p>
-          <p>Cloud computing não é apenas sobre servidores remotos. É também sobre abstrações que tornam a vida dos desenvolvedores mais fácil e ajuda a construir sistemas e arquiteturas com alta qualidade.</p>
+          <p class="fragment">Cloud computing não é apenas sobre servidores remotos.
+            É também sobre abstrações que tornam a vida dos desenvolvedores mais fácil e ajuda a 
+            construir sistemas e arquiteturas com alta qualidade.</p>
         </section>
         <section>
           <h1>Exemplos de abstrações</h1>
@@ -56,7 +58,7 @@
           <p class="fragment">Serverless</p>
         </section>
         <section>
-          <h1>Agenda</h1>
+          <h1>Vamos falar sobre...</h1>
           <ul>
             <li class="fragment">PaaS</li>
             <li class="fragment">VMs</li>
@@ -67,7 +69,7 @@
           </ul>
         </section>
         <section>
-          <h1>Construindo uma API simples em Flask</h1>
+          <h1>SHOW ME THE CODE!</h1>
         </section>
         <section><pre class="highlight"><code>from flask import Flask, jsonify
 app = Flask(__name__)
@@ -83,6 +85,47 @@ def hello_world():
           <p>Legal! Quero colocar esse código em produção!</p>
         </section>
         <section>
+          <h1>PaaS - Platform as a Service</h1>
+          <p class="fragment">Geralmente a forma mais simples de subir sua aplicação.</p>
+          <ul>
+              <li class="fragment">Heroku</li>
+              <li class="fragment">App Engine</li>
+              <section TODO Add more PAAS -->
+          </ul>
+        </section>
+        <section>
+            <h1>PaaS</h1>
+            <ul>
+                <li class="fragment">Custo inicial baixo.</li>
+                <li class="fragment">Escalabilidade.</li>
+                <li class="fragment">Simplicidade para o time de desenvolvimento.</li>
+                <li class="fragment">Pouco controle e autonomia sobre o ambiente.</li>
+              </ul>
+        </section>
+        <section>
+          <h2>Heroku - Hands on!</h2>
+          <pre class="highlight"><code>git push heroku master</code></pre>
+        </section>
+        <section>
+          <h1>VMs - Máquinas Virtuais / Virtual Machines</h1>
+          <p class="fragment"></p>
+          <ul>
+              <li class="fragment">Digital Ocean</li>
+              <li class="fragment">AWS</li>
+              <li class="fragment">Google Cloud Platform</li>
+              <li class="fragment">Azure</li>
+              <li class="fragment">... e praticamente qualquer plataforma de cloud.</li>
+          </ul>
+        </section>
+        <section>
+            <h1>VMs</h1>
+            <ul>
+              <li class="fragment">Controle e autonomia sobre o ambiente.</li>
+              <li class="fragment">Precisa ser configurado do zero.</li>
+              <li class="fragment">Maior preocupação com segurança, redes, infraestrutura em geral.</li>
+            </ul>
+        </section>
+        <section>
           <h1>Serverless</h1>
         </section>
         <section>
@@ -94,10 +137,10 @@ def hello_world():
         <section>
             <h1>Serverless</h1>
             <ul>
-              <li class="fragment">Simplicidade</li>
-              <li class="fragment">Custo por tempo de execução</li>
-              <li class="fragment">Escalável</li>
-              <li class="fragment">Maior latência nos primeiros requests</li>
+              <li class="fragment">Simplicidade.</li>
+              <li class="fragment">Custo por tempo de execução.</li>
+              <li class="fragment">Escalável.</li>
+              <li class="fragment">Maior latência nos primeiros requests.</li>
             </ul>
         </section>
         <section>
@@ -116,10 +159,10 @@ def hello_world():
           <p class="fragment">Unidade de software que contém o código e todas as suas dependências para que uma aplicação rode bem e de forma confiável em qualquer ambiente.</p>
           <p class="fragment">https://www.docker.com/resources/what-container</p>
         </section>
-        <section>
+        <!-- <section>
           <h2>Containers vs Máquinas Virtuais</h2>
-            <!-- Deep dive explanation about hypervisors and kernel processes  -->
-        </section>
+            Deep dive explanation about hypervisors and kernel processes
+        </section> !-->
         <section>
           <h2>Docker</h2>
         </section>
@@ -139,8 +182,8 @@ RUN set -ex && \
         </section>
         <section>
           <h2>Rodando com Docker</h2>
-          <pre class="highlight"><code>docker build . -t hello-world
-docker run -p 5000:5000 hello-world</code></pre>
+          <pre class="highlight"><code>docker build . -t python-na-cloud
+docker run -p 5000:5000 python-na-cloud</code></pre>
         </section>
         <section>
           <h2>Docker Compose</h2>
@@ -193,7 +236,7 @@ eval $(minikube docker-env)</code></pre>
         </section>
         <section>
           <h2>Kubernetes - Services</h2>
-          <pre class="fragment"><code>kubectl get serices
+          <pre class="fragment"><code>kubectl get services
 minikube service python-na-cloud</code></pre>
         </section>
         <section>
