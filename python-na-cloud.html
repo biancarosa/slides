@@ -36,6 +36,14 @@
           </ul>
         </section>
         <section>
+          <h1>O que esperar</h1>
+          <ul>
+            <li class="fragment">Um overview das possibilidades.</li>
+            <li class="fragment">Mais munição pra escolher a melhor opção.</li>
+            <li class="fragment">Exemplos. Muita coisa prática.</li>
+          </ul>
+        </section>
+        <section>
           <h1>Cloud</h1>
           <p class="fragment">There is no cloud. It's just someone else's computer.</p>
           <p class="fragment">#sóquenão</p>
@@ -50,7 +58,8 @@
         <section>
           <h1>Agenda</h1>
           <ul>
-            <li class="fragment">Construindo uma API simples em Flask</li>
+            <li class="fragment">PaaS</li>
+            <li class="fragment">VMs</li>
             <li class="fragment">Serverless Functions</li>
             <li class="fragment">Containers</li>
             <li class="fragment">Kubernetes</li>
@@ -92,12 +101,12 @@ def hello_world():
             </ul>
         </section>
         <section>
-            <h1>Serverless</h1>
-            <!-- TODO: Drawing.
-              1. Trigger.
-              2. Startup.
-              3. Execution.
-            -->
+            <h1>Serverless - Lifecycle</h1>
+            <ul>
+              <li class="fragment">Trigger</li>
+              <li class="fragment">Startup</li>
+              <li class="fragment">Execução</li>
+            </ul>
         </section>
         <section>
             <h1>HANDS ON!</h1>
@@ -112,13 +121,80 @@ def hello_world():
             <!-- Deep dive explanation about hypervisors and kernel processes  -->
         </section>
         <section>
-          <!-- Dockerfile: o que é, como funciona etc  -->
+          <h2>Docker</h2>
+        </section>
+        <section>
+          <h2>Dockerfile</h2>
+          <pre class="highlight"><code>FROM python:3.7.2-alpine3.7
+
+RUN apk add --no-cache --update git make gcc python3-dev musl-dev && \
+    set -ex && \
+    pip install --no-cache-dir pipenv==10.1.2
+
+WORKDIR /app
+ADD . .
+
+RUN set -ex && \
+    pipenv install --system --deploy</code></pre>
+        </section>
+        <section>
+          <h2>Rodando com Docker</h2>
+          <pre class="highlight"><code>docker build . -t hello-world
+docker run -p 5000:5000 hello-world</code></pre>
+        </section>
+        <section>
+          <h2>Docker Compose</h2>
+          <pre class="highlight"><code>version: "3"
+services:
+  web:
+    build:
+      context: .
+    command: gunicorn hello_world:app --workers=4 --bind 0.0.0.0:5000 --reload
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"</code></pre>
+        </section>
+        <section>
+          <h2>Docker Compose</h2>
+          <pre class="highlight"><code>docker-compose up</code></pre>
         </section>
         <section>
           <h1>Kubernetes</h1>
         </section>
         <section>
           <!-- Kubernetes: o que é, como funciona etc  -->
+        </section>
+        <section>
+          <h2>Minikube</h2>
+          <!-- Minikube: o que é, como funciona etc  -->
+          <pre class="fragment"><code>minikube start
+eval $(minikube docker-env)</code></pre>
+        </section>
+        <section>
+          <h2>Kubernetes - Contextos</h2>
+          <pre class="fragment"><code>kubectl config get-contexts</code></pre>
+        </section>
+        <section>
+          <h2>Kubernetes - ConfigMaps</h2>
+          <pre class="fragment"><code>kubectl apply -f kubernetes/configmaps.yaml</code></pre>
+        </section>
+        <section>
+          <h2>Kubernetes - Secrets</h2>
+          <pre class="fragment"><code>kubectl apply -f kubernetes/secrets.yaml</code></pre>
+        </section>
+        <section>
+          <h2>Kubernetes - Deployments</h2>
+          <pre class="fragment"><code>kubectl apply -f kubernetes/deployment.yaml</code></pre>
+        </section>
+        <section>
+          <h2>Kubernetes - Pods</h2>
+          <pre class="fragment"><code>watch kubectl get pods</code></pre>
+        </section>
+        <section>
+          <h2>Kubernetes - Services</h2>
+          <pre class="fragment"><code>kubectl get serices
+minikube service python-na-cloud</code></pre>
         </section>
         <section>
           <h1>Serverless Containers</h1>
