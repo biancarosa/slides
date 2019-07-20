@@ -89,8 +89,10 @@ def hello_world():
           <p class="fragment">Geralmente a forma mais simples de subir sua aplicação.</p>
           <ul>
               <li class="fragment">Heroku</li>
-              <li class="fragment">App Engine</li>
-              <section TODO Add more PAAS -->
+              <li class="fragment">Google App Engine</li>
+              <li class="fragment">Azure App Service</li>
+              <li class="fragment">Red Hat OpenShift</li>
+              <li class="fragment">Tsuru</li>
           </ul>
         </section>
         <section>
@@ -100,10 +102,26 @@ def hello_world():
                 <li class="fragment">Escalabilidade.</li>
                 <li class="fragment">Simplicidade para o time de desenvolvimento.</li>
                 <li class="fragment">Pouco controle e autonomia sobre o ambiente.</li>
-              </ul>
+            </ul>
         </section>
         <section>
           <h2>Heroku - Hands on!</h2>
+          <h3>Procfile</h3>
+          <pre class="highlight"><code>web: gunicorn hello_world:app --workers=4</code></pre>
+        </section>
+        <section>
+          <h2>Heroku - Hands on!</h2>
+          <h3>Setup</h3>
+          <pre class="highlight"><code>heroku git:remote -a python-na-cloud</code></pre>
+        </section>
+        <section>
+          <h2>Heroku - Hands on!</h2>
+          <h3>Scale</h3>
+          <pre class="highlight"><code>heroku ps:scale web=1</code></pre>
+        </section>
+        <section>
+          <h2>Heroku - Hands on!</h2>
+          <h3>Deploy</h3>
           <pre class="highlight"><code>git push heroku master</code></pre>
         </section>
         <section>
@@ -127,8 +145,6 @@ def hello_world():
         </section>
         <section>
           <h1>Serverless</h1>
-        </section>
-        <section>
           <p class="fragment">Como assim serverless? Não tem servidor?!</p>
           <p class="fragment">Calma.</p>
           <p class="fragment">Arquiteturas serverless provêem uma abstração em cima do servidor em que seu código é executado.</p>
@@ -152,7 +168,8 @@ def hello_world():
             </ul>
         </section>
         <section>
-            <h1>HANDS ON!</h1>
+            <h1>Serverless - Hands On!</h1>
+            <pre class="highlight"><code>gcloud beta functions deploy hello_world --trigger-http --runtime python37</code></pre>
         </section>
         <section>
           <h1>Containers</h1>
@@ -183,7 +200,7 @@ RUN set -ex && \
         <section>
           <h2>Rodando com Docker</h2>
           <pre class="highlight"><code>docker build . -t python-na-cloud
-docker run -p 5000:5000 python-na-cloud</code></pre>
+docker run -p 5000:8000 python-na-cloud</code></pre>
         </section>
         <section>
           <h2>Docker Compose</h2>
@@ -212,19 +229,8 @@ services:
           <h2>Minikube</h2>
           <!-- Minikube: o que é, como funciona etc  -->
           <pre class="fragment"><code>minikube start
-eval $(minikube docker-env)</code></pre>
-        </section>
-        <section>
-          <h2>Kubernetes - Contextos</h2>
-          <pre class="fragment"><code>kubectl config get-contexts</code></pre>
-        </section>
-        <section>
-          <h2>Kubernetes - ConfigMaps</h2>
-          <pre class="fragment"><code>kubectl apply -f kubernetes/configmaps.yaml</code></pre>
-        </section>
-        <section>
-          <h2>Kubernetes - Secrets</h2>
-          <pre class="fragment"><code>kubectl apply -f kubernetes/secrets.yaml</code></pre>
+eval $(minikube docker-env)
+kubectl config get-contexts</code></pre>
         </section>
         <section>
           <h2>Kubernetes - Deployments</h2>

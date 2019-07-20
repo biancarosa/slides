@@ -10,4 +10,4 @@ ADD . .
 RUN set -ex && \
     pipenv install --system --deploy
 
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "hello_world:app"]
+CMD ["gunicorn", "-b", "0.0.0.0", "hello_world:app"]

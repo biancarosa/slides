@@ -36,10 +36,10 @@ spec:
         - name: python-na-cloud
           image: python-na-cloud:latest
           imagePullPolicy: Never
-          envFrom:
-            - configMapRef:
-                name: python-na-cloud-env
-            - secretRef:
-                name: python-na-cloud-secrets
+          # envFrom:
+          #   - configMapRef:
+          #       name: python-na-cloud-env
+          #   - secretRef:
+          #       name: python-na-cloud-secrets
           ports:
           - containerPort: 5000
