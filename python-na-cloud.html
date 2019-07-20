@@ -8,7 +8,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/white.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/black.css"
     />
     <link
       rel="stylesheet"
@@ -26,14 +26,13 @@
         <section>
           <h1>Bianca Rosa</h1>
           <h3>tech lead @ stone</h3>
+          <p><a href="https://biancarosa.com.br">biancarosa.com.br</a> | <a href="http://twitter.com/__biancarosa">@__biancarosa</a></p>
           <ul>
             <li class="fragment">Python & Go</li>
             <li class="fragment">Docker & Kubernetes & Cloud</li>
-            <li class="fragment">Qualidade & Resiliência</li>
-            <li class="fragment">
-              PythOnRio / Pyladies / WWG RJ
-            </li>
+            <li class="fragment">PythOnRio & Pyladies</li>
           </ul>
+
         </section>
         <section>
           <h1>O que esperar</h1>
@@ -81,6 +80,10 @@ def hello_world():
     })
 </code></pre>
         </section>
+        <section><pre class="highlight"><code>pipenv shell
+pipenv install
+FLASK_APP=hello_world flask run</code></pre>
+</section>
         <section>
           <p>Legal! Quero colocar esse código em produção!</p>
         </section>
@@ -148,7 +151,7 @@ def hello_world():
           <p class="fragment">Como assim serverless? Não tem servidor?!</p>
           <p class="fragment">Calma.</p>
           <p class="fragment">Arquiteturas serverless provêem uma abstração em cima do servidor em que seu código é executado.</p>
-          <p class="fragment">https://martinfowler.com/articles/serverless.html</p>
+          <p class="fragment"><a href="https://www. martinfowler.com/articles/serverless.html">martinfowler.com/articles/serverless.html</a></p>
         </section>
         <section>
             <h1>Serverless</h1>
@@ -174,7 +177,7 @@ def hello_world():
         <section>
           <h1>Containers</h1>
           <p class="fragment">Unidade de software que contém o código e todas as suas dependências para que uma aplicação rode bem e de forma confiável em qualquer ambiente.</p>
-          <p class="fragment">https://www.docker.com/resources/what-container</p>
+          <p class="fragment"><a href="https://docker.com/resources/what-container">docker.com/resources/what-container</a></p>
         </section>
         <!-- <section>
           <h2>Containers vs Máquinas Virtuais</h2>
@@ -182,6 +185,9 @@ def hello_world():
         </section> !-->
         <section>
           <h2>Docker</h2>
+          <p class="fragment">
+              Tecnologia de containers open-source.
+          </p>
         </section>
         <section>
           <h2>Dockerfile</h2>
@@ -195,7 +201,9 @@ WORKDIR /app
 ADD . .
 
 RUN set -ex && \
-    pipenv install --system --deploy</code></pre>
+    pipenv install --system --deploy
+
+CMD exec gunicorn --bind :$PORT hello_world:app</code></pre>
         </section>
         <section>
           <h2>Rodando com Docker</h2>
@@ -221,16 +229,16 @@ services:
         </section>
         <section>
           <h1>Kubernetes</h1>
-        </section>
-        <section>
-          <!-- Kubernetes: o que é, como funciona etc  -->
+          <p class="fragment">
+            É um orquestrador de containers. Ajuda a gerenciar aplicações que rodam em containers em múltiplos nós, provendo mecanismos básicos pra deploy, manutenção e escalabilidade.
+          </p>
         </section>
         <section>
           <h2>Minikube</h2>
-          <!-- Minikube: o que é, como funciona etc  -->
+<p>Ferramenta para facilitar o teste e desenvolvimento baseado em Kubernetes. Cria uma VM localmente com um cluster de apenas um nó.</p>
           <pre class="fragment"><code>minikube start
 eval $(minikube docker-env)
-kubectl config get-contexts</code></pre>
+kubectl config current-context</code></pre>
         </section>
         <section>
           <h2>Kubernetes - Deployments</h2>
